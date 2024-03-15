@@ -10,6 +10,21 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://ning565.github.io//"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
 <link rel="stylesheet" href="/css/main.css">
 
 
@@ -302,7 +317,7 @@ mjx-container[display="true"] + br {
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/Day0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
       <meta itemprop="name" content="NING565">
       <meta itemprop="description" content="记录下学习与生活">
     </span>
@@ -461,7 +476,7 @@ JavaWeb开发（选学核心部分如SpringBoot）-&gt;直接开苍穹外卖项�
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
       <meta itemprop="name" content="NING565">
       <meta itemprop="description" content="记录下学习与生活">
     </span>
@@ -752,7 +767,7 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/02/02/Markdown%E5%85%A5%E9%97%A8%E8%AF%AD%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
       <meta itemprop="name" content="NING565">
       <meta itemprop="description" content="记录下学习与生活">
     </span>
@@ -896,7 +911,7 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/02/02/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
       <meta itemprop="name" content="NING565">
       <meta itemprop="description" content="记录下学习与生活">
     </span>
@@ -960,7 +975,7 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/02/01/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
       <meta itemprop="name" content="NING565">
       <meta itemprop="description" content="记录下学习与生活">
     </span>
@@ -1093,6 +1108,8 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="NING565"
+      src="/images/header.jpg">
   <p class="site-author-name" itemprop="name">NING565</p>
   <div class="site-description" itemprop="description">记录下学习与生活</div>
 </div>
@@ -1144,6 +1161,17 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
+<div class="powered-by">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">
+        访客数:<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_pv">
+        访问量<span id="busuanzi_value_site_pv"></span>
+    </span>
+</div>
         
 
 
