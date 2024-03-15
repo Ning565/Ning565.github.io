@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一下博客搭建的整个历程，包括日后新增一些实现的功能 博客搭建 主要参考：Hexo+GitHub搭建个人博客教程（2023最新版）_hexo github个人网站教程-CSDN博客 这篇CSDN的搭建教程，感谢博主，以下教程纯属自用，一些图片也是摘自此博主的 搭建思路： 1.利用Hexo 一款快速、简洁且高效的博客框架，允许用户使用Markdown语言编写内容，并渲染成静态网页，其">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客搭建与发布教程">
 <meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/2024/03/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83%E6%95%99%E7%A8%8B/index.html">
-<meta property="og:site_name" content="hehe2ning">
+<meta property="og:site_name" content="SJN的个人小屋">
 <meta property="og:description" content="记录一下博客搭建的整个历程，包括日后新增一些实现的功能 博客搭建 主要参考：Hexo+GitHub搭建个人博客教程（2023最新版）_hexo github个人网站教程-CSDN博客 这篇CSDN的搭建教程，感谢博主，以下教程纯属自用，一些图片也是摘自此博主的 搭建思路： 1.利用Hexo 一款快速、简洁且高效的博客框架，允许用户使用Markdown语言编写内容，并渲染成静态网页，其">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>博客搭建与发布教程 | hehe2ning</title>
+  <title>博客搭建与发布教程 | SJN的个人小屋</title>
   
 
 
@@ -102,14 +102,15 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">hehe2ning</h1>
+      <h1 class="site-title">SJN的个人小屋</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">以最大的热情去爱我们不确定的生活</p>
+      <p class="site-subtitle" itemprop="description">静水流深，无问西东</p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -139,11 +140,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -172,11 +200,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="NING565">
-      <meta itemprop="description" content="记录生活">
+      <meta itemprop="description" content="记录下学习与生活">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hehe2ning">
+      <meta itemprop="name" content="SJN的个人小屋">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -456,7 +484,10 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
     <a href="/2024/02/02/Markdown%E5%85%A5%E9%97%A8%E8%AF%AD%E6%B3%95/" rel="prev" title="Markdown入门语法">
       <i class="fa fa-chevron-left"></i> Markdown入门语法
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/15/Day0/" rel="next" title="Day0">
+      Day0 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -522,21 +553,21 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">NING565</p>
-  <div class="site-description" itemprop="description">记录生活</div>
+  <div class="site-description" itemprop="description">记录下学习与生活</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -606,6 +637,10 @@ index.md 文件，打开此文件，将其中的 type 字段的值修改为 cate
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
