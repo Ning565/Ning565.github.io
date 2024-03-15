@@ -296,7 +296,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-03-15 12:10:21 / 修改时间：06:56:46" itemprop="dateCreated datePublished" datetime="2024-03-15T12:10:21Z">2024-03-15</time>
+              <time title="创建时间：2024-03-15 12:10:21 / 修改时间：07:16:56" itemprop="dateCreated datePublished" datetime="2024-03-15T12:10:21Z">2024-03-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -334,25 +334,24 @@ Pages，我们不需要购买服务器也能部署我们的网站。</p>
 <p>这两款工具进行博客的整体搭建</p>
 <h2 id="安装本地环境">1.1 安装本地环境</h2>
 <h3 id="node.js环境"><strong>1.node.js环境：</strong></h3>
-<p>安装 nodejs， 因为Hexo是基于 Node.js 驱动的一款博客框架。
-http://nodejs.cn/</p>
+<p>安装 nodejs， 因为Hexo是基于 Node.js 驱动的一款博客框架：<a target="_blank" rel="noopener" href="http://nodejs.cn/">下载地址</a></p>
 <h3 id="git环境"><strong>2.git环境：</strong></h3>
 <p>Git
 是一种<strong>分布式版本控制系统</strong>，即，代码的本地克隆就是一个完整的版本控制存储库，利用git可以进行版本控制，<strong>内容管理</strong></p>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png" alt="img">
-<figcaption aria-hidden="true">img</figcaption>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png" alt="git工作流程">
+<figcaption aria-hidden="true">git工作流程</figcaption>
 </figure>
 <p>Git
 各平台安装包下载地址为：http://git-scm.com/downloads，一路next；</p>
-<p><strong>安装完毕后的检查</strong>——<strong>打开cmd命令</strong></p>
+<p><strong>安装完毕后的检查</strong>——打开cmd命令</p>
 <p><strong>查看node.js版本：</strong>node -v</p>
 <p><strong>查看git版本：</strong>git --version</p>
 <p>在开始菜单里找到"Git"-&gt;"Git Bash"，会弹出 Git
 命令窗口，你可以在该窗口进行 Git
 操作；或在桌面或文件夹任意位置右键，列表中会出现：<strong>Open Git GUI
 here 和 Open Git Bash here</strong></p>
-<p>接下来创建一个文件夹，是存放你的博客的目录，如D:，在当前文件夹中，右键，点击Open
+<p>接下来创建一个文件夹，是存放你的博客的目录，如D-&gt;blog文件夹（后续我们称为博客根目录），在当前文件夹中，右键，点击Open
 Git Bash here，在弹出的Git命令窗口进行如下操作</p>
 <h3 id="安装hexo"><strong>3.安装hexo</strong>：</h3>
 <p>首先为了防止网络问题（国外服务器），先安装配置镜像：</p>
@@ -361,7 +360,7 @@ Git Bash here，在弹出的Git命令窗口进行如下操作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <p>初始化成功后文件夹会出现许多文件：</p>
 <ol type="1">
-<li>**_config.yml**：这是 Hexo
+<li>**__config.yml**：这是 Hexo
 的配置文件，你可以在这里设置博客的各种配置选项，比如标题、描述、主题等。</li>
 <li><strong>node_modules</strong>：这个文件夹包含了博客依赖的所有
 Node.js 模块，例如 Hexo 自身和其他插件。</li>
@@ -380,17 +379,17 @@ Node.js 模块，例如 Hexo 自身和其他插件。</li>
 init以后，现在已经有一个默认的本地博客了，可以先预览看看，还会默认克隆一个
 Landscape 主题，这个默认的博客样式主题就是Landscape</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server(hexo s)</span><br></pre></td></tr></table></figure>
-<p>命令行在运行，别关闭，然后在浏览器输入：localhost:4000</p>
+<p>命令行在运行，别关闭，然后打开浏览器，地址栏输入：localhost:4000</p>
 <p>即可看到第一篇默认的博客Hello World</p>
 <h2 id="github环境">1.2 Github环境</h2>
 <p>注册Github账号并创建仓库，<a href="https://github.com/">GitHub官网</a></p>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/eb7ebaec9e44a81ceb10449723eb93de.png" alt="img">
-<figcaption aria-hidden="true">img</figcaption>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/eb7ebaec9e44a81ceb10449723eb93de.png" alt="Github创建博客仓库">
+<figcaption aria-hidden="true">Github创建博客仓库</figcaption>
 </figure>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/541e294e44c08b6688a68385859c60a6.png" alt="img">
-<figcaption aria-hidden="true">img</figcaption>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/541e294e44c08b6688a68385859c60a6.png" alt="Github创建博客仓库">
+<figcaption aria-hidden="true">Github创建博客仓库</figcaption>
 </figure>
 <p><strong>注意选择public</strong>
 <strong>注意仓库的取名格式：用户名.github.io(这将是以后的访问域名)</strong></p>
@@ -438,6 +437,11 @@ Node.js 模块，例如 Hexo 自身和其他插件。</p>
 <p>在博客的文件夹的git bash中依次输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean           //清除 Hexo 生成的缓存文件和静态文件</span><br><span class="line">hexo new &quot;文章名称&quot;   //新建文章</span><br><span class="line">// 新建文章后，在 source-&gt;_posts文件夹中可以看到.md文件，进行编辑文件</span><br><span class="line">hexo s              //文章预览，s是source的意思</span><br><span class="line">hexo g              //generate的意思，生成文件</span><br><span class="line">hexo d              //部署到github上</span><br></pre></td></tr></table></figure>
 <p><strong>之后每次上传博客都是此顺序，部署之后可发现GitHub中多了文件，此时浏览器输入，用户名.github.io(Github仓库名)就可以访问博客啦</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这是空格：&amp;emsp;</span><br><span class="line"></span><br><span class="line">这是空行：&amp;#160;</span><br><span class="line"></span><br><span class="line">这是换行：&lt;br&gt;</span><br></pre></td></tr></table></figure>
+<p>A空格了吗？  B</p>
+<p>C 空行了吗？</p>
+<p> </p>
+<p>D换行了吗？<br></p>
 <h2 id="博客的进阶操作">2.2 博客的进阶操作</h2>
 <p><em>说是进阶操作，其实就是为了让文章部署在网页时，可以满足一些在markdown中可以实现的基本需求，我的需求仅仅有四项</em>：</p>
 <p><strong>换个自己喜欢的主题，图片的上传管理、数学公式的编辑和每篇文章有个目录
@@ -469,11 +473,11 @@ Service）是指提供在线图片存储和管理服务的网络平台。用户�
 是一个用于快速上传图片并获取图片URL链接的工具，选择合适的版本并下载，可访问PicGo的官方文档进一步了解其功能和用法。我使用的是
 win10系统，下载的是最新的版本。下载可能会很慢，可借助迅雷进行下载。下载后双击进行安装，注意不要安装在C盘。</p>
 <figure>
-<img src="https://pic1.zhimg.com/80/v2-e1e7d47b39f0ee903719d460f26d9750_720w.webp" alt="img">
-<figcaption aria-hidden="true">img</figcaption>
+<img src="https://pic1.zhimg.com/80/v2-e1e7d47b39f0ee903719d460f26d9750_720w.webp" alt="Github创建图床仓库">
+<figcaption aria-hidden="true">Github创建图床仓库</figcaption>
 </figure>
-<p>下载地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a>
-使用指南：<a href="https://link.zhihu.com/?target=https%3A//picgo.github.io/PicGo-Doc/zh/guide/">https://picgo.github.io/PicGo-D</a></p>
+<p>下载地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<p>使用指南：<a href="https://link.zhihu.com/?target=https%3A//picgo.github.io/PicGo-Doc/zh/guide/">https://picgo.github.io/PicGo-D</a></p>
 <p>可以在PicGo设置中先设置一下自己的喜好，现在看不懂没关系，下面配完以后实际上传了一个图片就明白了（注：图床的功能很强大，这里我们只是用了很小的一部分，用来上传到自己的个人博客中）</p>
 <p>PicGo 支持的图床很多，如七牛图床、腾讯云 COS、阿里云 OSS、Github
 图床、Gitee 图床等等，我们当然用免费的Github或者Gitee啦</p>
