@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记录一下博客搭建的整个历程，包括日后新增一些实现的功能 博客搭建 主要参考：Hexo+GitHub搭建个人博客教程（2023最新版）_hexo github个人网站教程-CSDN博客 这篇CSDN的搭建教程，感谢博主，以下教程纯属自用，一些图片也是摘自此博主的 搭建思路： 1.利用Hexo 一款快速、简洁且高效的博客框架，允许用户使用Markdown语言编写内容，并渲染成静态网页，其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客搭建与发布教程">
+<meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/2024/03/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="hehe2ning">
+<meta property="og:description" content="记录一下博客搭建的整个历程，包括日后新增一些实现的功能 博客搭建 主要参考：Hexo+GitHub搭建个人博客教程（2023最新版）_hexo github个人网站教程-CSDN博客 这篇CSDN的搭建教程，感谢博主，以下教程纯属自用，一些图片也是摘自此博主的 搭建思路： 1.利用Hexo 一款快速、简洁且高效的博客框架，允许用户使用Markdown语言编写内容，并渲染成静态网页，其">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/eb7ebaec9e44a81ceb10449723eb93de.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/541e294e44c08b6688a68385859c60a6.png">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e1e7d47b39f0ee903719d460f26d9750_720w.webp">
+<meta property="article:published_time" content="2024-03-15T12:10:21.000Z">
+<meta property="article:modified_time" content="2024-03-15T06:56:46.988Z">
+<meta property="article:author" content="NING565">
+<meta property="article:tag" content="加油、加油、加油">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png">
+
+<link rel="canonical" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83%E6%95%99%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>博客搭建与发布教程 | hehe2ning</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">hehe2ning</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">以最大的热情去爱我们不确定的生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%8F%91%E5%B8%83%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="NING565">
+      <meta itemprop="description" content="记录生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hehe2ning">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客搭建与发布教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-15 12:10:21 / 修改时间：06:56:46" itemprop="dateCreated datePublished" datetime="2024-03-15T12:10:21Z">2024-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">入门使用</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>记录一下博客搭建的整个历程，包括日后新增一些实现的功能</strong></p>
+<h1 id="博客搭建">博客搭建</h1>
+<p>主要参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_62928039/article/details/130248518">Hexo+GitHub搭建个人博客教程（2023最新版）_hexo
+github个人网站教程-CSDN博客</a></p>
+<p><em>这篇CSDN的搭建教程，感谢博主，以下教程纯属自用，一些图片也是摘自此博主的</em></p>
+<p><strong>搭建思路：</strong></p>
+<p>1.利用<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>
+一款快速、简洁且高效的博客框架，允许用户使用Markdown语言编写内容，并渲染成静态网页，其相当于一个网站的主题模块；</p>
+<p>2.利用GithubPages：Github Pages 是 Github
+官方提供的一个静态站点托管服务，它允许用户将 GitHub
+仓库中的代码转换为可访问的网站。借助 Github
+Pages，我们不需要购买服务器也能部署我们的网站。</p>
+<p>这两款工具进行博客的整体搭建</p>
+<h2 id="安装本地环境">1.1 安装本地环境</h2>
+<h3 id="node.js环境"><strong>1.node.js环境：</strong></h3>
+<p>安装 nodejs， 因为Hexo是基于 Node.js 驱动的一款博客框架。
+http://nodejs.cn/</p>
+<h3 id="git环境"><strong>2.git环境：</strong></h3>
+<p>Git
+是一种<strong>分布式版本控制系统</strong>，即，代码的本地克隆就是一个完整的版本控制存储库，利用git可以进行版本控制，<strong>内容管理</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/git-process.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>Git
+各平台安装包下载地址为：http://git-scm.com/downloads，一路next；</p>
+<p><strong>安装完毕后的检查</strong>——<strong>打开cmd命令</strong></p>
+<p><strong>查看node.js版本：</strong>node -v</p>
+<p><strong>查看git版本：</strong>git --version</p>
+<p>在开始菜单里找到"Git"-&gt;"Git Bash"，会弹出 Git
+命令窗口，你可以在该窗口进行 Git
+操作；或在桌面或文件夹任意位置右键，列表中会出现：<strong>Open Git GUI
+here 和 Open Git Bash here</strong></p>
+<p>接下来创建一个文件夹，是存放你的博客的目录，如D:，在当前文件夹中，右键，点击Open
+Git Bash here，在弹出的Git命令窗口进行如下操作</p>
+<h3 id="安装hexo"><strong>3.安装hexo</strong>：</h3>
+<p>首先为了防止网络问题（国外服务器），先安装配置镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>然后安装hexo和初始化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>初始化成功后文件夹会出现许多文件：</p>
+<ol type="1">
+<li>**_config.yml**：这是 Hexo
+的配置文件，你可以在这里设置博客的各种配置选项，比如标题、描述、主题等。</li>
+<li><strong>node_modules</strong>：这个文件夹包含了博客依赖的所有
+Node.js 模块，例如 Hexo 自身和其他插件。</li>
+<li><strong>scaffolds</strong>：在这个文件夹中，你可以放置一些模板文件，用于创建新文章或页面时的默认结构。</li>
+<li><strong>source</strong>：这个文件夹包含了你的博客的源文件，比如文章、页面、静态资源等。</li>
+<li><strong>themes</strong>：在这里存放着博客的主题文件，你可以根据需要选择或自定义主题。</li>
+<li><strong>db.json</strong>：这是 Hexo
+的数据库文件，用于存储一些数据，比如文章列表、标签等。</li>
+<li><strong>package.json</strong> 和
+<strong>package-lock.json</strong>：这两个文件是 Node.js
+项目的配置文件，包含了项目的依赖信息和版本信息。</li>
+<li><strong>public</strong>：这个文件夹包含了生成的静态网页文件，当你执行
+<code>hexo generate</code> 命令后，生成的 HTML 文件就会保存在这里</li>
+</ol>
+<p>hexo
+init以后，现在已经有一个默认的本地博客了，可以先预览看看，还会默认克隆一个
+Landscape 主题，这个默认的博客样式主题就是Landscape</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server(hexo s)</span><br></pre></td></tr></table></figure>
+<p>命令行在运行，别关闭，然后在浏览器输入：localhost:4000</p>
+<p>即可看到第一篇默认的博客Hello World</p>
+<h2 id="github环境">1.2 Github环境</h2>
+<p>注册Github账号并创建仓库，<a href="https://github.com/">GitHub官网</a></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/eb7ebaec9e44a81ceb10449723eb93de.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/541e294e44c08b6688a68385859c60a6.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p><strong>注意选择public</strong>
+<strong>注意仓库的取名格式：用户名.github.io(这将是以后的访问域名)</strong></p>
+<p>next以后会出现可选https和ssh，选择ssh</p>
+<h2 id="本地gitpage绑定">1.3 本地GitPage绑定</h2>
+<p>我们首先设置ssh连接，SSH key 和 GitHub 绑定有以下几个好处：</p>
+<p>使用
+SSH，即安全外壳协议，可以加密通信内容，提高了数据传输的安全性。通过 SSH
+key
+鉴权，可以避免传统密码登录方式可能存在的风险，增强账户的安全性，一旦将
+SSH key 添加到 GitHub 上，就无需每次使用 Git
+操作时都输入用户名和密码，减少了输入密码的繁琐过程，提高了工作效率，而且可以设置github上的SSH
+key的有效时间，不用频繁更改加密连接；</p>
+<p><strong>首先在git Bash下</strong> 输入命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh           //进入.ssh文件</span><br><span class="line">ssh-keygen -t rsa -C ‘注册时的邮箱地址(你的github邮箱地址)’</span><br></pre></td></tr></table></figure>
+<p>接着去查看C盘目录(此文件夹所在C:)，然后在记事本中打开id_rsa.put文件并复制生成的key（或者使用everything时间搜索id_rsa.put），这个时候生成了一个密钥</p>
+<p>将密钥配置到Github中：</p>
+<p><strong>在GitHub主页的头像下找到seething</strong> -&gt;
+<strong>然后点击SSH and GPG keys，点击New SSH key</strong></p>
+<p><strong>将刚刚在.ssh目录下所复制的id_rsa.put文件中的信息复制进key(注意空格)（名字随意）</strong></p>
+<p>接下来进行验证：</p>
+<p>在git中输入命令进行ssh验证：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com 并且输入yes之后，行末尾会显示你的用户名</span><br></pre></td></tr></table></figure>
+<p>会受到邮件提醒，成功绑定~</p>
+<p>然后输入命令进行本地绑定与Github的用户名和邮箱（git）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name “注册时用户名”</span><br><span class="line">git config --global user.email “注册时邮箱”</span><br></pre></td></tr></table></figure>
+<p>这样便连接完毕本地和Github了</p>
+<h2 id="博客访问域名">1.4 博客访问域名</h2>
+<p>找到直接创建博客文件夹中的 _config.yml</p>
+<p>把文章末尾改成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">        type: git</span><br><span class="line">        repo: https://github.com/用户名/用户名.github.io.git</span><br><span class="line"></span><br><span class="line">                    （或者git@github.com:用户名/用户名.github.io.git）【推荐，我是用这个成功了，第一个未成功】</span><br><span class="line">        branch: main(一定是main不能是master!!!)</span><br></pre></td></tr></table></figure>
+<p>注意，上面的type
+repo和branch后面都有一个英文空格，输入以后保存文件，退出，博客便绑定成功</p>
+<h1 id="博客日常运行">博客日常运行</h1>
+<p>我们刚才安装hexo时的的npm(Node Package Manager)和cnpm(淘宝镜像)都是
+Node.js 的包管理工具，用于在 Node.js
+项目中安装、升级、删除和管理依赖包，可以理解成<strong>应用商店</strong>，直接从此下载，类似conda
+pip等命令</p>
+<h2 id="博客基本发布">2.1 博客基本发布</h2>
+<p>hexo中带有很多的模块工具包以供我们使用，注意，此时你的hexo只是安装在了你的博客地址目录下，而不是全局目录，所以你想要查看现在有哪些包，即打开博客文件夹下的：<strong>node_modules</strong>：这个文件夹包含了博客依赖的所有
+Node.js 模块，例如 Hexo 自身和其他插件。</p>
+<p>我们为了上传本地博客到网页端，需要安装一个工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<h3 id="上传流程">上传流程</h3>
+<p>在博客的文件夹的git bash中依次输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean           //清除 Hexo 生成的缓存文件和静态文件</span><br><span class="line">hexo new &quot;文章名称&quot;   //新建文章</span><br><span class="line">// 新建文章后，在 source-&gt;_posts文件夹中可以看到.md文件，进行编辑文件</span><br><span class="line">hexo s              //文章预览，s是source的意思</span><br><span class="line">hexo g              //generate的意思，生成文件</span><br><span class="line">hexo d              //部署到github上</span><br></pre></td></tr></table></figure>
+<p><strong>之后每次上传博客都是此顺序，部署之后可发现GitHub中多了文件，此时浏览器输入，用户名.github.io(Github仓库名)就可以访问博客啦</strong></p>
+<h2 id="博客的进阶操作">2.2 博客的进阶操作</h2>
+<p><em>说是进阶操作，其实就是为了让文章部署在网页时，可以满足一些在markdown中可以实现的基本需求，我的需求仅仅有四项</em>：</p>
+<p><strong>换个自己喜欢的主题，图片的上传管理、数学公式的编辑和每篇文章有个目录
+or 标签，便于文件夹管理访问</strong></p>
+<h3 id="主题更换">1.主题更换</h3>
+<p>当前博客的主题是next哦~：<strong><a href="https://link.zhihu.com/?target=https%3A//github.com/next-theme/hexo-theme-next">hexo-theme-next</a></strong>应该是目前最广泛使用的hexo主题了，优点是简洁，定制度高，因为代码是开源的，所以有很多开发者维护。由于前任管理员不提供权限，故开发了一个新的分支，<strong><a href="https://link.zhihu.com/?target=https%3A//github.com/next-theme/hexo-theme-next/issues/4%23issuecomment-626205848">详情</a></strong>。</p>
+<p>打开你的博客文件夹的themes子文件夹，可以看到有哪些主题，默认应该就有一个landscape，是我们当时初始化hexo
+init下载的</p>
+<p>在网站：https://hexo.io/themes/中可以找到很多主题</p>
+<p>这里以 hexo-theme-next
+这个主题为例做一下说明，打开你的博客根目录文件夹，在git bash中输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone --branch v7.8.0 https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line">git clone --branch v7.8.0 git@github.com:theme-next/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
+<p>版本是自己选择的，下载以后会发展博客根目录文件下的
+themes文件夹多了一个next文件夹，即我们下载的主题</p>
+<p>然后在博客根目录文件夹的站点配置文件_config.yml（之前1.4节配置绑定github时用过），
+找到 theme 字段，并将其后面的值更改为 next即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s //进入localhost:4000看看主题效果</span><br></pre></td></tr></table></figure>
+<p>需要修改此主题的一些内容细节：如增加评论，添加搜索，修改样式，增加广告等等等，可以参考修改next主题博客，如：</p>
+<p><a target="_blank" rel="noopener" href="https://www.pengtech.net/hexo/">hexo | 鹏叔的技术博客
+(pengtech.net)</a></p>
+<h3 id="图片的上传管理">2.图片的上传管理</h3>
+<p>我尝试了很多方法，最后选择了图床的方式，即把图片上传到github上管理，而不是本地管理图片，网页在需要图片时从github页面获取即可</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/319679704">搭建一个免费图床！彻底解决博客文章中图片存储问题！
+- 知乎 (zhihu.com)</a></p>
+<p><strong>图床：</strong>图床（Image Hosting
+Service）是指提供在线图片存储和管理服务的网络平台。用户可以将图片上传到图床服务器，然后通过生成的图片链接来分享图片或在网页上显示这些图片。</p>
+<h4 id="a.安装配置picgo">A.<strong>安装配置PicGo</strong>：</h4>
+<p>PicGo
+是一个用于快速上传图片并获取图片URL链接的工具，选择合适的版本并下载，可访问PicGo的官方文档进一步了解其功能和用法。我使用的是
+win10系统，下载的是最新的版本。下载可能会很慢，可借助迅雷进行下载。下载后双击进行安装，注意不要安装在C盘。</p>
+<figure>
+<img src="https://pic1.zhimg.com/80/v2-e1e7d47b39f0ee903719d460f26d9750_720w.webp" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>下载地址：<a href="https://link.zhihu.com/?target=https%3A//github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a>
+使用指南：<a href="https://link.zhihu.com/?target=https%3A//picgo.github.io/PicGo-Doc/zh/guide/">https://picgo.github.io/PicGo-D</a></p>
+<p>可以在PicGo设置中先设置一下自己的喜好，现在看不懂没关系，下面配完以后实际上传了一个图片就明白了（注：图床的功能很强大，这里我们只是用了很小的一部分，用来上传到自己的个人博客中）</p>
+<p>PicGo 支持的图床很多，如七牛图床、腾讯云 COS、阿里云 OSS、Github
+图床、Gitee 图床等等，我们当然用免费的Github或者Gitee啦</p>
+<h4 id="b.github新建一个仓库专门存放图片文件即图床仓库">B.Github新建一个仓库专门存放图片文件，即图床仓库：</h4>
+<p><strong>新建Github仓库并生成Token：</strong></p>
+<ul>
+<li><p>注册 Github 用户</p></li>
+<li><p>在 Github 上新建一个用于存储的仓库，点击 New repository
+创建一个新仓库。</p></li>
+<li><p>生成一个 Personal access tokens</p></li>
+</ul>
+<p>在 Github 中依次点击<strong>Settings-&gt;Developer
+settings-&gt;Personal access tokens-&gt;Generate new
+token</strong>，勾选 repo 权限，填写描述，然后点击 Generate token
+按钮，生成 token。由于生成的 token
+只会在第一次显示，建议<strong>保存下来备用</strong>，否则后续只能重新生成
+token。（一定要保存下来备用！！！）</p>
+<h4 id="c.打开picgo配置github图床">C.打开PicGO配置Github图床</h4>
+<p>点击图床设置-&gt;Github图床：</p>
+<ul>
+<li>设定仓库名：按照照“用户名/仓库名”的格式填写，比如我的ning565/picblog（终究首反应还是没能驼峰命名）</li>
+<li>设定分支名：默认主分支 main 即可。</li>
+<li>设定 Token：将之前生成的 token 复制粘贴到这里。</li>
+<li>指定存储路径：github的那个图床仓库目录下的子目录，默认是根目录。</li>
+<li>设定自定义域名：自定义域名的作用是在上传图片后成功后，PicGo
+将以“自定义域名+子目录名+图片名”生成访问连接。这里我们的自定义域名为：<a href="https://link.zhihu.com/?target=https%3A//cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a>用户名/仓库名，用的是<a href="https://link.zhihu.com/?target=http%3A//cdn.jsdelivr.net">http://cdn.jsdelivr.net</a>提升图片的加载速度。</li>
+</ul>
+<h4 id="d.typora配置picgo">D.Typora配置PicGo</h4>
+<p>我们每次写博客都是利用Typora软件，然后在其中插入图片等等，我们需要实现在Typora中插入的任一图片都直接通过PicGo软件上传到Github的图床仓库中，这样在hexo
+d上传博客时才能从图床仓库取图片</p>
+<p>依次点击Typora的文件 -&gt; 偏好设置 -&gt; 图像</p>
+<p>插入图片时选择上传图片</p>
+<p>上传服务设定中，上传服务选择PicGo，路径选择PicGo.exe所在路径，然后进行验证上传，等待一段时间，windows系统电脑右下角出现弹窗上传成功，即代表着成功上传，此时图片便成功部署了，每次直接在typora中放的图片都能直接显示在网页中</p>
+<h2 id="数学公式编辑">3.数学公式编辑</h2>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44846324/article/details/114582328">这次彻底解决在Hexo中渲染MathJax数学公式出现的问题！！！_uninstall
+hexo-renderer-marked失败-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://pku-zyf.github.io/formula/">Hexo渲染数学公式：配置方法与原理浅释
+| 明 (pku-zyf.github.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://xxxpt.blog.csdn.net/article/details/109052860">用Github
+Pages+Hexo搭建博客之(十)Hexo博客next主题MathJax数学公式渲染问题_github
+个人博客数学公式-CSDN博客</a></p>
+<p>在Markdown文档编写中，我们可以使用LATEX的语法输入数学公式。常见的Markdown编辑器如Typora都可以方便地渲染数学公式。然而，Hexo在默认设置下部署博客时，并不能渲染数学公式。</p>
+<p>原因在于，<strong>渲染数学公式需要使用MathJax</strong>（一种模块化的JavaScript框架）；而Hexo的默认渲染器是hexo-renderer-marked（在目录根目录下的modules看到）引擎，它并不支持MathJax。</p>
+<p>更换一个渲染引擎即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>然后在主题next目录配置文件中_config.yml：</p>
+<p>修改perpage为true mathjax后面的enable为true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Math Formulas Render Support</span><br><span class="line">math:</span><br><span class="line">  # Default (true) will load mathjax / katex script on demand.</span><br><span class="line">  # That is it only render those page which has `mathjax: true` in Front-matter.</span><br><span class="line">  # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.</span><br><span class="line">  per_page: true</span><br><span class="line"></span><br><span class="line">  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure>
+<p>切记：我最初在操作的时候，各种急着下载模块，不仅用了mathjax还用了很多modules，下载的很乱，一定先认准一个方法配置，如果配不好，先卸载了刚才下载的module，再重新找方法找module下载，某些module不能在一起共存的，欲速则不达</p>
+<h2 id="为文章设置目录标签">4.为文章设置目录/标签</h2>
+<p>在博客文件夹根目录下打开Git bash，然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>此时，在source 目录中会生成一个 categories 文件夹，文件夹内有一个
+index.md 文件，打开此文件，将其中的 type 字段的值修改为 categories</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>创建标签的方式一样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br><span class="line">//在tag文件夹中的index.md中</span><br><span class="line">...</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>为每篇文章设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名称&quot;</span><br></pre></td></tr></table></figure>
+<p>以后，在文章开头部分会自动添加如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 博客搭建与发布教程</span><br><span class="line">date: 2024-03-15 12:10:21</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">- 入门使用</span><br></pre></td></tr></table></figure>
+<p>像我这样，在categories或者tages的下一行 输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- &quot;目录/标签名称&quot;   //注意减号后面的空格哦~</span><br></pre></td></tr></table></figure>
+<p>Contining~~~</p>
+<p>如果以后有用到其他的博客内容再更新嗷~</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/02/02/Markdown%E5%85%A5%E9%97%A8%E8%AF%AD%E6%B3%95/" rel="prev" title="Markdown入门语法">
+      <i class="fa fa-chevron-left"></i> Markdown入门语法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装本地环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node.js%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.node.js环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.git环境：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.安装hexo：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Github环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0gitpage%E7%BB%91%E5%AE%9A"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 本地GitPage绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E5%9F%9F%E5%90%8D"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 博客访问域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%97%A5%E5%B8%B8%E8%BF%90%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">博客日常运行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E5%8F%91%E5%B8%83"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 博客基本发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%B5%81%E7%A8%8B"><span class="nav-number">2.1.1.</span> <span class="nav-text">上传流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 博客的进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.主题更换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.图片的上传管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a.%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEpicgo"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">A.安装配置PicGo：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b.github%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93%E4%B8%93%E9%97%A8%E5%AD%98%E6%94%BE%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E5%8D%B3%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">B.Github新建一个仓库专门存放图片文件，即图床仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c.%E6%89%93%E5%BC%80picgo%E9%85%8D%E7%BD%AEgithub%E5%9B%BE%E5%BA%8A"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">C.打开PicGO配置Github图床</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d.typora%E9%85%8D%E7%BD%AEpicgo"><span class="nav-number">2.2.2.4.</span> <span class="nav-text">D.Typora配置PicGo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%BC%96%E8%BE%91"><span class="nav-number">2.3.</span> <span class="nav-text">3.数学公式编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%A0%87%E7%AD%BE"><span class="nav-number">2.4.</span> <span class="nav-text">4.为文章设置目录&#x2F;标签</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">NING565</p>
+  <div class="site-description" itemprop="description">记录生活</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NING565</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
