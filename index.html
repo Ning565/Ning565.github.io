@@ -300,6 +300,560 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/Day2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="NING565">
+      <meta itemprop="description" content="记录下学习与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SJN的个人小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/20/Day2/" class="post-title-link" itemprop="url">Day2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-03-19 16:56:02 / 修改时间：12:01:05" itemprop="dateCreated datePublished" datetime="2024-03-19T16:56:02Z">2024-03-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%A5%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">入厂学习记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总结一下最近没来得及总结的内容与今日学习内容，由于Java
+Web开发目前没学完，于是边学边补不会的内容：</p>
+<h1 id="java-项目">Java 项目</h1>
+<h2 id="软件开发与角色">1.软件开发与角色</h2>
+<h3 id="软件开发">软件开发</h3>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106162815172.png"
+alt="image-20221106162815172" />
+<figcaption aria-hidden="true">image-20221106162815172</figcaption>
+</figure>
+<p><strong>软件开发流程</strong>：</p>
+<p>需求分析：完成需求规格说明书、产品原型编写。</p>
+<p>设计：UI设计、数据库设计、接口设计</p>
+<p>编码：编写项目代码、并完成单元测试。</p>
+<p>测试：测试人员,对部署在测试环境的项目进行功能测试,
+并出具测试报告。</p>
+<p>上线运维：会由运维人员准备服务器上的软件环境安装、配置， 配置完毕后，
+再将我们开发好的项目，部署在服务器上运行。</p>
+<h3 id="角色分工">角色分工</h3>
+<p><strong>招聘/升职岗位</strong>：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">岗位/角色</th>
+<th>对应阶段</th>
+<th style="text-align: left;">职责/分工</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">项目经理</td>
+<td>全阶段</td>
+<td style="text-align: left;">对整个项目负责，任务分配、把控进度</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">产品经理</td>
+<td>需求分析</td>
+<td
+style="text-align: left;">进行需求调研，输出需求调研文档、产品原型等</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UI设计师</td>
+<td>设计</td>
+<td style="text-align: left;">根据产品原型输出界面效果图</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">架构师</td>
+<td>设计</td>
+<td style="text-align: left;">项目整体架构设计、技术选型等</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><font color='red'>开发工程师</font></td>
+<td><font color='red'>编码</font></td>
+<td style="text-align: left;"><font color='red'>功能代码实现</font></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">测试工程师</td>
+<td>测试</td>
+<td style="text-align: left;">编写测试用例，输出测试报告</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">运维工程师</td>
+<td>上线运维</td>
+<td style="text-align: left;">软件环境搭建、项目上线</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sky项目初步介绍">2.sky项目初步介绍</h2>
+<h3 id="技术栈">技术栈</h3>
+<p><strong>用户层：</strong>系统管理后台的前端页面</p>
+<p><strong>网关层：</strong>Nginx是一个服务器，主要用来作为Http服务器，部署静态资源，访问性能高。</p>
+<p>Nginx中还有两个比较重要的作用： <strong>反向代理和负载均衡</strong>，
+在进行项目部署时，要实现Tomcat的负载均衡，就可以通过Nginx来实现。</p>
+<p><strong>应用层：</strong></p>
+<p>SpringBoot： 快速构建Spring项目, 采用 "约定优于配置" 的思想,
+简化Spring项目的配置开发。</p>
+<p>SpringMVC：SpringMVC是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合，可以无缝集成。</p>
+<p>Spring Task: 由Spring提供的定时任务框架。</p>
+<p>httpclient: 主要实现了对http请求的发送。</p>
+<p>Spring Cache: 由Spring提供的数据缓存框架</p>
+<p>JWT: 用于对应用程序上的用户进行身份验证的标记。</p>
+<p>阿里云OSS: 对象存储服务，在项目中主要存储文件，如图片等。</p>
+<p>Swagger： 可以自动的帮助开发人员生成接口文档，并对接口进行测试。</p>
+<p>POI: 封装了对Excel表格的常用操作。</p>
+<p>WebSocket:
+一种通信网络协议，使客户端和服务器之间的数据交换更加简单，用于项目的来单、催单功能实现。</p>
+<p><strong>数据层：</strong></p>
+<p>MySQL： <strong>关系型数据库</strong>,
+本项目的核心业务数据都会采用MySQL进行存储。</p>
+<p>Redis： 基于key-value格式存储的内存数据库, 访问速度快,
+经常使用它做<strong>缓存</strong>。</p>
+<p>Mybatis：
+本项目<strong>持久层</strong>（项目的持久层是指在软件开发中负责处理数据持久化的部分，也称为数据访问层或数据持久化层）将会使用Mybatis开发。</p>
+<p>pagehelper: 分页插件。</p>
+<p>spring data redis: 简化java代码操作Redis的API。</p>
+<p><strong>工具：</strong></p>
+<p>git: 版本控制工具, 在团队协作中,
+使用该工具对项目中的代码进行管理。</p>
+<p>maven: 项目构建工具。</p>
+<p>junit：单元测试工具，开发人员功能实现完毕后，需要通过junit对功能进行单元测试。</p>
+<p>postman:
+接口测工具，模拟用户发起的各类HTTP请求，获取对应的响应结果。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106185646994.png"
+alt="image-20221106185646994" />
+<figcaption aria-hidden="true">image-20221106185646994</figcaption>
+</figure>
+<h3 id="idea搭建环境"><strong>IDEA搭建环境</strong></h3>
+<p><strong>Git</strong>:<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43252521/article/details/123959391">在
+IDEA 中使用 Git 图文教程_idea连接git-CSDN博客</a></p>
+<p>更改文件夹后出错，导致无法commit and push：</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/tcjy1000/article/details/127129224">git
+fatal: detected dubious ownership in repository 解决方法_detected
+dubious ownership in repository at-CSDN博客</a></p>
+<p><strong>连接数据库</strong>：</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Royalic/article/details/119604763">超详细的Idea与MySQL的连接（从入门到精通）_idea连接数据库-CSDN博客</a></p>
+<p>更改mysql文件夹名称，出现ERROR2003:</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/661201217">【已解决】mysql：ERROR
+2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+- 知乎 (zhihu.com)</a></p>
+<h3 id="nginx作用">nginx作用</h3>
+<h4 id="反向代理">反向代理</h4>
+<p>前端请求地址：http://localhost/api/employee/login</p>
+<p>后端接口地址：http://localhost:8080/admin/employee/login</p>
+<p>很明显，两个地址不一致，那是如何请求到后端服务的呢？</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221107152041371.png"
+alt="image-20221107152041371" />
+<figcaption aria-hidden="true">image-20221107152041371</figcaption>
+</figure>
+<p><strong>nginx 反向代理</strong>，就是将前端发送的动态请求由 nginx
+转发到后端服务器，而不是不直接发给后端</p>
+<p><strong>好处：</strong></p>
+<ul>
+<li><p>提高访问速度</p>
+<p>因为nginx本身可以进行缓存，如果访问的同一接口，并且做了数据缓存，nginx就直接可把数据返回，不需要真正地访问服务端，从而提高访问速度。</p></li>
+<li><p>进行负载均衡</p>
+<p>所谓负载均衡,就是把大量的请求按照我们指定的方式均衡的分配给集群中的每台服务器。</p></li>
+<li><p>保证后端服务安全</p>
+<p>因为一般后台服务地址不会暴露，所以使用浏览器不能直接访问，可以把nginx作为请求访问的入口，请求到达nginx后转发到具体的服务中，从而保证后端服务的安全。</p></li>
+</ul>
+<p><strong>配置：</strong></p>
+<p><strong>nginx 反向代理的配置方式 conf文件中：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8080/admin/; <span class="comment">#反向代理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>proxy_pass：</strong>该指令是用来设置代理服务器的地址，可以是主机名称，IP地址加端口号等形式。</p>
+<h4 id="负载均衡">负载均衡</h4>
+<p>当如果服务以集群的方式进行部署时，那nginx在转发请求到服务器时就需要做相应的负载均衡。其实，负载均衡从本质上来说也是基于反向代理来实现的，最终都是转发请求。</p>
+<p><strong>nginx 负载均衡的配置方式：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://webservers/admin;<span class="comment">#负载均衡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>upstream：</strong>如果代理服务器是一组服务器的话，我们可以使用upstream指令配置后端服务器组。</p>
+<p>如上代码的含义是：监听80端口号， 然后当我们访问
+http://localhost:80/api/../..这样的接口的时候，它会通过 location /api/
+{} 这样的反向代理到
+http://webservers/admin，根据webservers名称找到一组服务器，根据设置的负载均衡策略(默认是轮询)转发到具体的服务器。</p>
+<p><strong>注：</strong>upstream后面的名称可自定义，但要上下保持一致。</p>
+<p><strong>nginx 负载均衡策略：</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>轮询</td>
+<td>默认方式</td>
+</tr>
+<tr class="even">
+<td>weight</td>
+<td>权重方式，默认为1，权重越高，被分配的客户端请求就越多</td>
+</tr>
+<tr class="odd">
+<td>ip_hash</td>
+<td>依据ip分配方式，这样每个访客可以固定访问一个后端服务</td>
+</tr>
+<tr class="even">
+<td>least_conn</td>
+<td>依据最少连接方式，把请求优先分配给连接数少的后端服务</td>
+</tr>
+<tr class="odd">
+<td>url_hash</td>
+<td>依据url分配方式，这样相同的url会被分配到同一个后端服务</td>
+</tr>
+<tr class="even">
+<td>fair</td>
+<td>依据响应时间方式，响应时间短的服务将会被优先分配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="加密登录">加密登录</h3>
+<p><strong>STEP1</strong>：修改数据库中的密码password值，为md5（一个hash算法）加密后的内容</p>
+<p><strong>STEP2</strong>：修改Java代码，将前端提交的代码通过md5加密再对比数据库中固定内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password = DigestUtils.md5DigestAsHex(password.getBytes());</span><br></pre></td></tr></table></figure>
+<h3 id="导入接口文档">导入接口文档</h3>
+<p><strong>方式：</strong>YApi导入.json数据 https://yapi.pro/</p>
+<p>YApi是一个开源的接口管理平台，它主要用于帮助团队更好地管理和维护API（Application
+Programming Interface）接口文档。</p>
+<h3 id="后端自测">后端自测</h3>
+<p><strong>利用Swagger</strong>：</p>
+<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful
+风格的 Web 服务(<a target="_blank" rel="noopener" href="https://swagger.io/"
+class="uri">https://swagger.io/</a>)。 它的主要作用是：</p>
+<ol type="1">
+<li><p>使得前后端分离开发更加方便，有利于团队协作</p></li>
+<li><p>接口的文档在线自动生成，降低后端开发人员编写接口文档的负担</p></li>
+<li><p>功能测试</p>
+<p>Spring已经将Swagger纳入自身的标准，建立了Spring-swagger项目，现在叫Springfox。通过在项目中引入Springfox
+，即可非常简单快捷的使用Swagger。</p></li>
+</ol>
+<p>目前都使用knife4j框架：Java
+MVC框架集成Swagger生成文档API增强解决方案</p>
+<p>1.导入Maven依赖 pox.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.在配置类中加入 knife4j 相关配置</p>
+<p>3.设置静态资源映射，否则接口文档页面无法访问</p>
+<p>4.访问测试，接口文档路径在原路径后加入：/doc.html(静态资源映射)</p>
+<p>接口测试:测试登录功能</p>
+<p>Swagger常用注解：通过注解可以控制生成的接口文档，使接口文档拥有更好的可读性，常用注解如下：</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>注解</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="citation"
+data-cites="Api">@Api</span></strong></td>
+<td>用在类上，例如Controller，表示对类的说明</td>
+</tr>
+<tr class="even">
+<td><strong><span class="citation"
+data-cites="ApiModel">@ApiModel</span></strong></td>
+<td>用在类上，例如entity、DTO、VO</td>
+</tr>
+<tr class="odd">
+<td><strong><span class="citation"
+data-cites="ApiModelProperty">@ApiModelProperty</span></strong></td>
+<td>用在属性上，描述属性信息</td>
+</tr>
+<tr class="even">
+<td><strong><span class="citation"
+data-cites="ApiOperation">@ApiOperation</span></strong></td>
+<td>用在方法上，例如Controller的方法，说明方法的用途、作用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Swagger PK YApi</strong>：</p>
+<p>1、Yapi 是设计阶段使用的工具，管理和维护接口</p>
+<p>2、Swagger 在开发阶段使用的框架，帮助后端开发人员做后端的接口测试</p>
+<h2 id="实现功能">3.实现功能</h2>
+<p>实现任何一个功能都要有如下几步：</p>
+<p><strong>需求分析与设计-&gt;代码开发-&gt;功能测试-&gt;代码完善</strong></p>
+<p>一般在做需求分析时，往往都是对照着产品原型进行分析，因为产品原型比较直观，便于我们理解业务，设计出来表单内容/文档/接口</p>
+<p><strong>代码开发</strong>是根据需求分析的内容，结合代码的原本框架，根据功能添加新的部分（选择实现功能的方法）</p>
+<p><strong>功能测试实现方式：</strong></p>
+<ul>
+<li>通过接口文档测试 swagger的doc/html，向后端发送数据</li>
+<li>通过前后端联调测试：nginx启动http服务，在前端直接发送数据到后端</li>
+</ul>
+<p><strong>代码完善：</strong>针对功能测试中程序出现的问题，调整代码的内容，接下来在实现功能中，我们将记录重点集中在<strong>代码开发和代码完善</strong></p>
+<h3 id="新增员工">新增员工</h3>
+<h4 id="代码开发">代码开发</h4>
+<p>根据新增员工接口设计对应的DTO（当前端提交的数据和实体类中对应的属性差别比较大时，建议使用DTO来封装数据）</p>
+<p><strong>什么是DTO？</strong></p>
+<p>Java是<strong>面向对象（object）的</strong>，在开发过程中，我们会封装各种各样的实体类</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/680050977">一篇文章带你搞懂Controller、Service等各层的功能与作用
+- 知乎 (zhihu.com)</a></p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>实体类</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PO持久化对象（Persistent Object）</td>
+<td>用于表示数据库中的实体或表的映射 通常与数据库表的结构和字段对应
+PO的属性对应数据库表的字段，可以进行持久化操作（新增、查询、更新、删除）</td>
+</tr>
+<tr class="even">
+<td><strong>VO值对象（Value Object）</strong></td>
+<td>VO是值对象，用于封装数据，通常是不可变的，用于传递数据而不包含业务逻辑，VO可以用于在不同层之间传递数据，如前端和后端之间，后端的返回的到前端的数据只需要保留必要的字段就可以，将这些必要的字段封装起来就是VO</td>
+</tr>
+<tr class="odd">
+<td>BO业务对象（Business Object）</td>
+<td>BO是业务对象，用于封装业务逻辑和操作包含与业务相关的方法和属性，用于实现业务规则和操作，BO通常与领域模型紧密相关，用于表示业务概念和业务流程</td>
+</tr>
+<tr class="even">
+<td>DO数据对象（Data/Domain Object）</td>
+<td>DO通常与BO和PO相对应，用于实现领域模型和业务逻辑，用于表示从数据存储中得到的数据</td>
+</tr>
+<tr class="odd">
+<td>DAO数据访问对象（Data Access Object）</td>
+<td>DAO是数据访问对象，用于封装对数据库的访问操作，也就是我们常说的Dao层<br/>提供对数据库的增删改查等操作的接口<br/>DAO可以隐藏底层数据库的具体实现细节，使得业务逻辑层与数据库解耦</td>
+</tr>
+<tr class="even">
+<td><strong>DTO数据传输对象（Data Transfer Object）</strong></td>
+<td>DTO是<strong>数据传输对象</strong>，用于在不同层之间传输数据<br/>通常用于优化数据传输的性能和减少网络通信的开销。<br/>DTO可以封装多个对象的数据，以减少网络请求次数<br/>如果说VO一般用于前端和后端之后传输数据，那么DTO就是在后端的不同层之间传递数据，例如controller层和service层或者在服务之间结构调用的时候使用DTO</td>
+</tr>
+<tr class="odd">
+<td>POJO普通Java对象（Plain Old Java Object）</td>
+<td>POJO是一个简单的Java对象，没有特定的限制和约束<br/>是一种普通的Java类，不依赖于特定的框架或接口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Service层：服务层</strong>
+由于Dao里面存放了对表操作的方法，entity类中存放了映射表的POJO类。Service的作用就是将Dao和entity类整合起来，进行再次封装，封装成一个方法，我们调用这个方法，就实现了对某个表的增删改查操作。</p>
+<p><strong>Controller：控制层</strong>
+负责请求转发，接受页面传递过来的参数，根据参数的不同，是调用不同的Service层方法进行操作，操作完成后将返回结果传递给页面。</p>
+<p><strong>数据访问层：</strong></p>
+<p><strong>Mapper：</strong>Mapper模式通常是指对象-关系映射（ORM）中的组件。它负责将<strong>领域对象和数据库表</strong>之间进行映射，实现数据的读取和写入。Mapper将<strong>数据库操作转换为对象操作</strong>，屏蔽了底层数据库的细节，使得开发人员可以使用<strong>面向对象</strong>的方式操作数据。
+它可以处理对象与关系型数据库之间的转换，包括查询、插入、更新和删除等操作。</p>
+<p><strong>DAO：</strong>DAO全称是（Data Access Objects)
+，数据库访问对象，主要的功能就是用于进行数据操作的，在程序的标准开发架构中属于数据访问层的操作。可以简单理解为一张数据表，就有一个DAO与之对应，与数据库的操作，增删改查等方法。DAO层可以实现对数据的持久化操作，使得业务逻辑可以通过DAO的接口来访问数据，而不需要关心具体的数据访问实现方式。</p>
+<p><strong>STEP1：自定义DTO类。</strong></p>
+<p>进入sky-pojo模块，在com.sky.dto包下，已定义EmployeeDTO</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sky.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDTO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String idNumber;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>STEP2：Controller层操作</strong></p>
+<p><strong>EmployeeController中创建新增员工方法</strong></p>
+<p>进入到sky-server模块中，在com.sky.controller.admin包下，在EmployeeController中创建新增员工方法，接收前端提交的参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@PostMapping</span></span><br><span class="line">   <span class="meta">@ApiOperation(&quot;新增员工&quot;)</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> EmployeeDTO employeeDTO)</span>&#123;</span><br><span class="line">       log.info(<span class="string">&quot;新增员工：&#123;&#125;&quot;</span>,employeeDTO);</span><br><span class="line">       employeeService.save(employeeDTO);<span class="comment">//该方法后续步骤会定义</span></span><br><span class="line">       <span class="keyword">return</span> Result.success();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注：</strong>Result类定义了后端统一返回结果格式。（success(有无参数)
+error）</p>
+<p><strong>STEP3：Service层接口与实现</strong></p>
+<p><strong>在EmployeeService接口中声明新增员工方法</strong></p>
+<p>进入到sky-server模块中,com.sky.server.EmployeeService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span>;</span><br></pre></td></tr></table></figure>
+<p>在接口的实现中：</p>
+<p><strong>在EmployeeServiceImpl中实现新增员工方法</strong></p>
+<p>com.sky.server.impl.EmployeeServiceImpl中创建方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span> &#123;</span><br><span class="line">       <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//对象属性拷贝</span></span><br><span class="line">       BeanUtils.copyProperties(employeeDTO, employee);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置账号的状态，默认正常状态 1表示正常 0表示锁定，StatusConstant表示状态常量</span></span><br><span class="line">       employee.setStatus(StatusConstant.ENABLE);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置密码，默认密码123456，加密后的</span></span><br><span class="line">       employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置当前记录的创建时间和修改时间</span></span><br><span class="line">       employee.setCreateTime(LocalDateTime.now());</span><br><span class="line">       employee.setUpdateTime(LocalDateTime.now());</span><br><span class="line"></span><br><span class="line">       <span class="comment">//todo 设置当前记录创建人id和修改人id</span></span><br><span class="line">       employee.setCreateUser(<span class="number">10L</span>);<span class="comment">//目前写个假数据，后期修改</span></span><br><span class="line">       employee.setUpdateUser(<span class="number">10L</span>);</span><br><span class="line"></span><br><span class="line">       employeeMapper.insert(employee);<span class="comment">//后续步骤定义</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>STEP4：Mapper层</strong></p>
+<p><strong>在EmployeeMapper中声明insert方法</strong></p>
+<p>com.sky.EmployeeMapper中添加方法</p>
+<p>由于SQL语句不是很复杂，因而此处用注解@Insert实现：注意在values值后加的内容要用驼峰命名法（application.yml已开启驼峰命名），而不是和数据库中的名称一致</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 插入员工数据</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employee</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Insert(&quot;insert into employee (name, username, password, phone, sex, id_number, create_time, update_time, create_user, update_user,status) &quot; +</span></span><br><span class="line"><span class="meta">           &quot;values &quot; +</span></span><br><span class="line"><span class="meta">           &quot;(#&#123;name&#125;,#&#123;username&#125;,#&#123;password&#125;,#&#123;phone&#125;,#&#123;sex&#125;,#&#123;idNumber&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;,#&#123;createUser&#125;,#&#123;updateUser&#125;,#&#123;status&#125;)&quot;)</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Employee employee)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="功能测试">功能测试</h4>
+<p><strong>1.接口文档测试</strong></p>
+<p><strong>启动服务：</strong>访问http://localhost:8080/doc.html，进入新增员工接口</p>
+<p>json数据：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idNumber&quot;</span><span class="punctuation">:</span> <span class="string">&quot;111222333444555666&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xiaozhi&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;phone&quot;</span><span class="punctuation">:</span> <span class="string">&quot;13812344321&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;sex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小智&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>响应码：401
+报错，原因：JwtTokenAdminInterceptor拦截器，需要校验token，由于JWT令牌校验失败，导致EmployeeController的save方法没有被调用，被拦截器拦截了</p>
+<p><strong>解决方法：</strong>调用员工登录接口获得一个合法的JWT令牌，使用admin用户登录获取令牌，将合法的JWT令牌添加到全局参数中</p>
+<p>文档管理--&gt;全局参数设置--&gt;添加参数，使得每次发送的json信息都会增加一个token头部，是合法的令牌；</p>
+<p><strong>什么是JWT？</strong></p>
+<p>https://blog.csdn.net/java_mindmap/article/details/123343404</p>
+<p><strong>JWT概念</strong></p>
+<p>JWT ， 全写JSON Web Token,
+是开放的行业标准RFC7591，它定义了一种紧凑的、自包含的方式，用于作为JSON对象在各方之间安全地传输信息。该信息可以被验证和信任，因为它是数字签名的。</p>
+<p>JWT加密JSON，保存在客户端，不需要在服务端保存会话信息，可以应用在前后端分离的用户验证上，后端对前端输入的用户信息进行加密产生一个令牌字符串，
+前端再次请求时附加此字符串，后端再使用算法解密。</p>
+<p><strong>JWT使用场景：</strong></p>
+<ul>
+<li>Authorization (授权) :
+这是使用JWT的最常见场景。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是现在广泛使用的JWT的一个特性，因为它的开销很小，并且可以轻松地跨域使用。</li>
+<li>Information Exchange (信息交换) :
+对于安全的在各方之间传输信息而言，JSON Web
+Tokens无疑是一种很好的方式。因为JWT可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。另外，由于签名是使用头和有效负载计算的，您还可以验证内容没有被篡改。</li>
+</ul>
+<p><strong>流程：</strong></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/56e4f404cc63cfc2ac31283c8e944613.png"
+alt="56e4f404cc63cfc2ac31283c8e944613.png" />
+<figcaption
+aria-hidden="true">56e4f404cc63cfc2ac31283c8e944613.png</figcaption>
+</figure>
+<p>JSON Web
+Token由三部分组成，它们之间用圆点(.)连接。这三部分分别是：</p>
+<ul>
+<li><p>Header：Header 部分是一个 JSON
+对象，存放Token类型和加密算法。加密算法常见的有MD5、SHA、HMAC（ Hash
+Message Authentication Code）。</p></li>
+<li><p>Payload：存放有效信息，包括</p>
+<ul>
+<li>标准的声明，类似开发语言总的关键字，如
+<ul>
+<li>iss（Issuser） - 签发者</li>
+<li>sub Subject 面向主体</li>
+<li>aud Audience 接收方</li>
+<li>exp Expiration time 过期时间戳</li>
+<li>nbf Not Before, 开始生效时间戳</li>
+<li>iat(Issued at) 签发时间</li>
+<li>jti(JWT ID)： 唯一标识</li>
+</ul></li>
+<li>公共的声明：一般添加业务相关的必要信息，因为可解密，不建议敏感信息。</li>
+<li>私有的声明：提供者和消费者共同定义的声明，Base64对称解密，不建议敏感信息</li>
+</ul></li>
+<li><p>Signature签名：对前两个部分的签名，防止数据篡改。</p>
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用
+Header 里面指定的签名算法（默认是 HMAC
+SHA256），按照下面的公式产生签名。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure>
+<p>算出签名以后，把 Header、Payload、Signature
+三个部分拼成一个字符串，每个部分之间用"点"（.）分隔，就可以返回给用户。</p>
+<p>secret-密钥
+使用header中声明的加密算法对Header和payload的加密连接字符串进行secret组合加密。密钥保存在服务端，服务端根据密钥进行解密验证。</p></li>
+</ul>
+<p>标准的声明，类似开发语言总的关键字</p>
+<p>格式：xxxx.yyyy.zzzz</p>
+<p><strong>java-jwt/jjwt</strong></p>
+<p>java-jwt是Java语言中推荐的JWT实现库，使用Maven导入如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;<span class="number">3.8</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>产生加密Token</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> JWT.create()</span><br><span class="line">  .withExpiresAt(newDate(System.currentTimeMillis()))  <span class="comment">//设置过期时间</span></span><br><span class="line">  .withAudience(<span class="string">&quot;user1&quot;</span>) <span class="comment">//设置接受方信息，一般时登录用户</span></span><br><span class="line">  .sign(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>));  <span class="comment">//使用HMAC算法，111111作为密钥加密</span></span><br></pre></td></tr></table></figure>
+<p><strong>解密Token获取负载信息并验证Token是否有效</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">userId</span> <span class="operator">=</span> JWT.decode(token).getAudience().get(<span class="number">0</span>);</span><br><span class="line">Assertions.assertEquals(<span class="string">&quot;user1&quot;</span>, userId);</span><br><span class="line"><span class="type">JWTVerifier</span> <span class="variable">jwtVerifier</span> <span class="operator">=</span> JWT.require(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>)).build();</span><br><span class="line">jwtVerifier.verify(token);</span><br></pre></td></tr></table></figure>
+<p>所谓的Token，其实就是服务端生成的一串加密字符串、以作客户端进行请求的一个“令牌”。当用户第一次使用账号密码成功进行登录后，服务器便生成一个Token及Token失效时间并将此返回给客户端，若成功登陆，以后客户端只需在有效时间内带上这个Token前来请求数据即可，无需再次带上用户名和密码。</p>
+<p><strong>2.前后端联调测试</strong></p>
+<p>启动nginx,访问
+http://localhost，通过前端员工管理界面添加信息，查看emplyee表，发现测试成功</p>
+<h4 id="代码完善">代码完善</h4>
+<p>目前，程序存在的问题主要有两个：</p>
+<ul>
+<li>录入的用户名已存在，抛出的异常后没有处理</li>
+<li>新增员工时，创建人id和修改人id设置为固定值</li>
+</ul>
+<p>接下来，我们对上述两个问题依次进行分析和解决。</p>
+<p><strong>问题一的解决</strong>：</p>
+<p>使得每次录入存在用户名时，前端会收到提示消息，通过全局异常处理器来处理，进入到sky-server模块，com.sky.hander包下，GlobalExceptionHandler.java添加方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 处理SQL异常</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> ex</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@ExceptionHandler</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">exceptionHandler</span><span class="params">(SQLIntegrityConstraintViolationException ex)</span>&#123;</span><br><span class="line">       <span class="comment">//Duplicate entry &#x27;zhangsan&#x27; for key &#x27;employee.idx_username&#x27;</span></span><br><span class="line">       <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> ex.getMessage();</span><br><span class="line">       <span class="keyword">if</span>(message.contains(<span class="string">&quot;Duplicate entry&quot;</span>))&#123;</span><br><span class="line">           String[] split = message.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> split[<span class="number">2</span>];</span><br><span class="line">           <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> username + MessageConstant.ALREADY_EXISTS;<span class="comment">//Message...是提前定义好的常量类</span></span><br><span class="line">           <span class="keyword">return</span> Result.error(msg);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> Result.error(MessageConstant.UNKNOWN_ERROR);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>问题二的解决：</strong></p>
+<p><strong>在员工登录成功后会生成JWT令牌并响应给前端：</strong></p>
+<p>JWT响应过程：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221111201922482.png"
+alt="image-20221111201922482" />
+<figcaption aria-hidden="true">image-20221111201922482</figcaption>
+</figure>
+<p>后续请求中，前端会携带<strong>JWT令牌</strong>，通过JWT令牌可以<strong>解析出</strong>当前登录员工id，解析出登录员工id后，如何传递给Service的save方法？</p>
+<p>通过<strong>ThreadLocal</strong></p>
+<p>ThreadLocal 并不是一个Thread，而是Thread的局部变量。
+ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。</p>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li>public void set(T value) 设置当前线程的线程局部变量的值</li>
+<li>public T get() 返回当前线程所对应的线程局部变量的值</li>
+<li>public void remove() 移除当前线程的线程局部变量</li>
+</ul>
+<p>于是在初始工程中已经封装了 ThreadLocal
+操作的工具类前提下，修改代码：</p>
+<p>在拦截器中interceptor解析出当前登录员工id，并放入<strong>线程局部变量中
+-&gt;在Service中获取线程局部变量中的值</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">Long</span> <span class="variable">empId</span> <span class="operator">=</span> Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());</span><br><span class="line">            log.info(<span class="string">&quot;当前员工id：&quot;</span>, empId);</span><br><span class="line">            <span class="comment">/////将用户id存储到ThreadLocal////////</span></span><br><span class="line">            BaseContext.setCurrentId(empId);</span><br><span class="line">            <span class="comment">///////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在save方法中加入：</span></span><br><span class="line">employee.setUpdateUser(BaseContext.getCurrentId());</span><br><span class="line"><span class="comment">//从线程池局部变量取值</span></span><br></pre></td></tr></table></figure>
+<p>即可完成创建人id的更新</p>
+<h1 id="算法">算法</h1>
+<p>算法向目前已经确定了计划，按照代码随想录（网站+资源）来刷题，按照专题来复习</p>
+<p>直接刷Hot100等，剑指offer，容易乱，容易忘</p>
+<p><strong>分类刷题</strong></p>
+<p>a.基本数据结构:数组、链表、二叉树、栈、队列、堆</p>
+<p>b.结合算法:动态规划、排序等等</p>
+<p><strong>如何做题</strong></p>
+<ul>
+<li><p>先看题目，想一下（先暴力想出来再说）</p></li>
+<li><p>再看题解（看点赞数最高的，那几个看思路）</p></li>
+<li><p>看完题解复现一下进行调试后，看问题，看题解</p></li>
+<li><p>最后，自己再写一遍，多回顾几遍</p></li>
+</ul>
+<p>网站：leecode、牛客、codetop</p>
+<p>开始刷，随后有时间再去看acwing的算法基础课、提高课、labulagu等（侧重于系统化长时间学习，ACMer，针对思维）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/19/Day1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1130,14 +1684,14 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
