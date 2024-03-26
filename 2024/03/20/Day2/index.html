@@ -21,17 +21,18 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="总结一下最近没来得及总结的内容与今日学习内容，由于Java Web开发目前没学完，于是边学边补不会的内容： Java 项目 1.软件开发与角色 软件开发   image-20221106162815172  软件开发流程： 需求分析：完成需求规格说明书、产品原型编写。 设计：UI设计、数据库设计、接口设计 编码：编写项目代码、并完成单元测试。 测试：测试人员,对部署在测试">
+  <meta name="description" content="总结一下最近没来得及总结的内容与今日学习内容，由于Java Web开发目前没学完，于是边学边补不会的内容： 项目开发 1.软件开发与角色 软件开发   image-20221106162815172  软件开发流程： 需求分析：完成需求规格说明书、产品原型编写。 设计：UI设计、数据库设计、接口设计 编码：编写项目代码、并完成单元测试。 测试：测试人员,对部署在测试环境的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Day2">
 <meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/2024/03/20/Day2/index.html">
 <meta property="og:site_name" content="SJN的个人小屋">
-<meta property="og:description" content="总结一下最近没来得及总结的内容与今日学习内容，由于Java Web开发目前没学完，于是边学边补不会的内容： Java 项目 1.软件开发与角色 软件开发   image-20221106162815172  软件开发流程： 需求分析：完成需求规格说明书、产品原型编写。 设计：UI设计、数据库设计、接口设计 编码：编写项目代码、并完成单元测试。 测试：测试人员,对部署在测试">
+<meta property="og:description" content="总结一下最近没来得及总结的内容与今日学习内容，由于Java Web开发目前没学完，于是边学边补不会的内容： 项目开发 1.软件开发与角色 软件开发   image-20221106162815172  软件开发流程： 需求分析：完成需求规格说明书、产品原型编写。 设计：UI设计、数据库设计、接口设计 编码：编写项目代码、并完成单元测试。 测试：测试人员,对部署在测试环境的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-19T16:56:02.000Z">
-<meta property="article:modified_time" content="2024-03-19T12:01:05.277Z">
+<meta property="article:modified_time" content="2024-03-26T12:35:49.140Z">
 <meta property="article:author" content="NING565">
-<meta property="article:tag" content="加油、加油、加油">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="软件开发">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/Day2/">
@@ -213,10 +214,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-03-19 16:56:02 / 修改时间：12:01:05" itemprop="dateCreated datePublished" datetime="2024-03-19T16:56:02Z">2024-03-19</time>
+              <time title="创建时间：2024-03-19 16:56:02" itemprop="dateCreated datePublished" datetime="2024-03-19T16:56:02Z">2024-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-26 12:35:49" itemprop="dateModified" datetime="2024-03-26T12:35:49Z">2024-03-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -240,7 +247,7 @@
       
         <p>总结一下最近没来得及总结的内容与今日学习内容，由于Java
 Web开发目前没学完，于是边学边补不会的内容：</p>
-<h1 id="java-项目">Java 项目</h1>
+<h1 id="项目开发">项目开发</h1>
 <h2 id="软件开发与角色">1.软件开发与角色</h2>
 <h3 id="软件开发">软件开发</h3>
 <figure>
@@ -311,6 +318,16 @@ style="text-align: left;">进行需求调研，输出需求调研文档、产品
 </tr>
 </tbody>
 </table>
+<h3 id="大厂研发流程">大厂研发流程</h3>
+<p>需求文档（确定需求包括的功能/确定开发包括的难点） -&gt;
+架构图（模块间的依赖关系，角色的分工） -&gt;
+确定协议（后端间，前后端间通讯协议，兼容性+易于维护） -&gt;
+设计数据结构和算法（格式/容器处理数据，算法大多直接调包） -&gt;
+预估容量与性能 -&gt; 考虑部署（环境，分布式，风险意识）-&gt;
+设计评审（彼此评审，多方面评价）-&gt;
+写代码（不仅在一个地方看到写代码是脑力活了）-&gt; 自测 -&gt;
+联调（费时费力，一定先自测好） -&gt; 交给测试岗 -&gt; code
+review（反复修改） -&gt; 合入主干 -&gt; 发布（考虑兼容性）</p>
 <h2 id="sky项目初步介绍">2.sky项目初步介绍</h2>
 <h3 id="技术栈">技术栈</h3>
 <p><strong>用户层：</strong>系统管理后台的前端页面</p>
@@ -710,20 +727,6 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
 -&gt;在Service中获取线程局部变量中的值</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">Long</span> <span class="variable">empId</span> <span class="operator">=</span> Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());</span><br><span class="line">            log.info(<span class="string">&quot;当前员工id：&quot;</span>, empId);</span><br><span class="line">            <span class="comment">/////将用户id存储到ThreadLocal////////</span></span><br><span class="line">            BaseContext.setCurrentId(empId);</span><br><span class="line">            <span class="comment">///////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在save方法中加入：</span></span><br><span class="line">employee.setUpdateUser(BaseContext.getCurrentId());</span><br><span class="line"><span class="comment">//从线程池局部变量取值</span></span><br></pre></td></tr></table></figure>
 <p>即可完成创建人id的更新</p>
-<h1 id="算法">算法</h1>
-<p>算法向目前已经确定了计划，按照代码随想录（网站+资源）来刷题，按照专题来复习</p>
-<p>直接刷Hot100等，剑指offer，容易乱，容易忘</p>
-<p><strong>分类刷题</strong></p>
-<p>a.基本数据结构:数组、链表、二叉树、栈、队列、堆</p>
-<p>b.结合算法:动态规划、排序等等</p>
-<p><strong>如何做题</strong></p>
-<ul>
-<li><p>先看题目，想一下（先暴力想出来再说）</p></li>
-<li><p>再看题解（看点赞数最高的，那几个看思路）</p></li>
-<li><p>看完题解复现一下进行调试后，看问题，看题解</p></li>
-<li><p>最后，自己再写一遍，多回顾几遍</p></li>
-</ul>
-<p>网站：leecode、牛客、codetop</p>
 <p>开始刷，随后有时间再去看acwing的算法基础课、提高课、labulagu等（侧重于系统化长时间学习，ACMer，针对思维）</p>
 
     </div>
@@ -733,6 +736,10 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" rel="tag"># 软件开发</a>
+          </div>
 
         
 
@@ -743,7 +750,10 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
     <a href="/2024/03/19/Day1/" rel="prev" title="Day1">
       <i class="fa fa-chevron-left"></i> Day1
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/20/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E9%9A%8F%E8%AE%B0/" rel="next" title="Java基础知识随记">
+      Java基础知识随记 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -802,7 +812,7 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">Java 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%8E%E8%A7%92%E8%89%B2"><span class="nav-number">1.1.</span> <span class="nav-text">1.软件开发与角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91"><span class="nav-number">1.1.1.</span> <span class="nav-text">软件开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E5%88%86%E5%B7%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text">角色分工</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sky%E9%A1%B9%E7%9B%AE%E5%88%9D%E6%AD%A5%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">2.sky项目初步介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idea%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.2.</span> <span class="nav-text">IDEA搭建环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">nginx作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">负载均衡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">加密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.5.</span> <span class="nav-text">导入接口文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E8%87%AA%E6%B5%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">后端自测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.</span> <span class="nav-text">3.实现功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="nav-number">1.3.1.</span> <span class="nav-text">新增员工</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">代码开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">功能测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%8C%E5%96%84"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">代码完善</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%8E%E8%A7%92%E8%89%B2"><span class="nav-number">1.1.</span> <span class="nav-text">1.软件开发与角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91"><span class="nav-number">1.1.1.</span> <span class="nav-text">软件开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E5%88%86%E5%B7%A5"><span class="nav-number">1.1.2.</span> <span class="nav-text">角色分工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%8E%82%E7%A0%94%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">大厂研发流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sky%E9%A1%B9%E7%9B%AE%E5%88%9D%E6%AD%A5%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">2.sky项目初步介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idea%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.2.</span> <span class="nav-text">IDEA搭建环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">nginx作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">负载均衡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.4.</span> <span class="nav-text">加密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.5.</span> <span class="nav-text">导入接口文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E8%87%AA%E6%B5%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">后端自测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.</span> <span class="nav-text">3.实现功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="nav-number">1.3.1.</span> <span class="nav-text">新增员工</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">代码开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">功能测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%8C%E5%96%84"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">代码完善</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -818,7 +828,7 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -827,6 +837,11 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
           
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
