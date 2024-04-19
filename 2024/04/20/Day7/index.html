@@ -21,20 +21,22 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="搭建博客的初衷是写给未来自己的记录话语，记录好自己的学习与生活，希望可以偶尔读一下，自我反思一路走来的风景，以完成自己的情感释放 ~  联系方式： github：Ning565 (github.com) QQ：772199739 email：xdu_songjinning@163.com  送给自己的一句话，希望不管以后走到哪里，都能记得住： 静水流深，无问西东（Still w">
-<meta property="og:type" content="website">
-<meta property="og:title" content="静水流深，无问西东">
-<meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/about/index.html">
+  <meta name="description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。  合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较； 迭代法中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day7">
+<meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/2024/04/20/Day7/index.html">
 <meta property="og:site_name" content="SJN的个人小屋">
-<meta property="og:description" content="搭建博客的初衷是写给未来自己的记录话语，记录好自己的学习与生活，希望可以偶尔读一下，自我反思一路走来的风景，以完成自己的情感释放 ~  联系方式： github：Ning565 (github.com) QQ：772199739 email：xdu_songjinning@163.com  送给自己的一句话，希望不管以后走到哪里，都能记得住： 静水流深，无问西东（Still w">
+<meta property="og:description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。  合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较； 迭代法中">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-15T17:22:35.000Z">
-<meta property="article:modified_time" content="2024-03-18T10:08:28.477Z">
+<meta property="article:published_time" content="2024-04-19T20:55:49.000Z">
+<meta property="article:modified_time" content="2024-04-19T13:19:42.510Z">
 <meta property="article:author" content="NING565">
-<meta property="article:tag" content="加油、加油、加油">
+<meta property="article:tag" content="二叉树算法">
+<meta property="article:tag" content="毕业设计">
+<meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/Ning565/Ning565.github.io/about/">
+<link rel="canonical" href="https://github.com/Ning565/Ning565.github.io/2024/04/20/Day7/">
 
 
 <script id="page-configurations">
@@ -42,13 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>静水流深，无问西东 | SJN的个人小屋
-</title>
+  <title>Day7 | SJN的个人小屋</title>
   
 
 
@@ -184,55 +185,154 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/04/20/Day7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="NING565">
+      <meta itemprop="description" content="记录下学习与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SJN的个人小屋">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Day7
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">静水流深，无问西东
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2024-04-19 20:55:49 / 修改时间：13:19:42" itemprop="dateCreated datePublished" datetime="2024-04-19T20:55:49Z">2024-04-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%9B%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">进厂学习记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="算法">算法</h1>
+<p>这几天努了努力，把代码随想录的二叉树专题全刷完了：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20240419210357930.png"
+alt="image-20240419210357930" />
+<figcaption aria-hidden="true">image-20240419210357930</figcaption>
+</figure>
+<p>简单按照网站中(<a
+target="_blank" rel="noopener" href="https://www.programmercarl.com/周总结/20201017二叉树周末总结.html#周一">二叉树系列</a>)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。</p>
+<ol type="1">
+<li><p>合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较；</p>
+<p><strong>迭代法中，一般一起操作两个树都是使用队列模拟类似层序遍历，同时处理两个树的节点，这种方式最好理解，如果用模拟递归的思路的话，要复杂一些。</strong></p></li>
+<li><p>涉及到二叉搜索树（Binary Search Tree，BST）
+，开始要换一个思路了，大多是二叉搜索树的题目，其实都离不开<strong>中序遍历</strong>，因为这样就是有序的，迭代法在处理某些情况也是很简单的，因为之间对比数值即可以控制root的左右变化</p></li>
+<li><p>如果在验证BST的时候：首先在此强调一下二叉搜索树的特性：</p>
+<ul>
+<li>节点的左子树只包含小于当前节点的数。</li>
+<li>节点的右子树只包含大于当前节点的数。</li>
+<li>所有左子树和右子树自身必须也是二叉搜索树。</li>
+</ul>
+<p>涉及到BST的陷阱：<strong>不能单纯的比较左节点小于中间节点，右节点大于中间节点就完事了</strong>，而是左子树<strong>都</strong>小于中间节点，右子树<strong>都</strong>大于中间节点，因为有可能左子树的右节点比左子树本身的节点大这种情况。</p>
+<p>推荐要通过中序遍历（得到有序数组），然后记录前一个数值（pre）和后一个数值比较（cur），得出最值。</p>
+<p><strong>在二叉树中通过两个前后指针作比较，会经常用到</strong>。</p></li>
+<li><p>在求众数集合的时候有一个技巧，因为题目中众数是可以有多个的，所以一般的方法需要<strong>遍历两遍</strong>才能求出众数的集合。</p>
+<p><strong>但可以遍历一遍就可以求众数集合，使用了适时清空结果集的方法</strong>，这个方法还是很巧妙的。</p></li>
+<li><p>公共祖先问题：<strong>如果找到一个节点，发现左子树出现结点p，右子树出现节点q，或者
+左子树出现结点q，右子树出现节点p，那么该节点就是节点p和q的最近公共祖先。</strong>此外，实现从底向上遍历判断最好的方式是：<strong>后序遍历</strong></p></li>
+</ol>
+<h2 id="二叉树专题总结">二叉树专题总结</h2>
+<p>到现在已经刷了30+二叉树经典题目，在每一道二叉树的题目中，使用递归三部曲来分析题目，看到二叉树，看到递归，都会想：<strong>返回值、参数是什么？终止条件是什么？单层逻辑是什么？</strong></p>
+<ul>
+<li>涉及到二叉树的构造，无论普通二叉树还是二叉搜索树一定前序，都是先构造中节点。</li>
+<li>求普通二叉树的属性，一般是后序，一般要通过递归函数的返回值做计算。</li>
+<li>求二叉搜索树的属性，一定是中序了，要不白瞎了有序性了。</li>
+</ul>
+<p>注意在普通二叉树的属性中，我用的是一般为后序，例如单纯<strong>求深度</strong>就用前序，<a
+target="_blank" rel="noopener" href="https://programmercarl.com/0257.二叉树的所有路径.html">二叉树：找所有路径
+(opens new window)</a>也用了前序，这是为了方便让父节点指向子节点。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/20211030125421.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>随记：刷二叉树专题最后的时候，一直都比较晕晕的，每次遇到递归的时候，都要看着具体例子走一遍才能理解，不能做到深入浅出，宏观上把握，微观上约束，现在有点陷入微观上观察解题，而不注重回归递归的本质，还需要多做题，多总结。</p>
+<p>此外，刷题也有一段时间了，今天浅看了一下已经刷了65道题了，数量见长的同时遗忘也随之而来，这就是没有做到及时总结的坏处，总是现看现总结，学过了就过了，没有做到很好地整理、反思、记录、总结，这是非常非常重要的，也是很贴合我自己的学习方法，需要坚持总结，坚持复盘，才能行稳致远。</p>
+<h1 id="毕设">毕设</h1>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20240419205929107.png"
+alt="image-20240419205929107" />
+<figcaption aria-hidden="true">image-20240419205929107</figcaption>
+</figure>
+<p>目前毕设初稿已经基本完成，基本的逻辑框架和核心内容均已写完，预测总页数达到60余页。</p>
+<p>尚未完成：</p>
+<ul>
+<li>绪论中研究工作部分，比较麻烦，一直没来得及整理研究工作的逻辑和发展；</li>
+<li>文章中几乎所有的图片，都需要重制，保证清晰度，尽可能使用矢量图；</li>
+<li>最后的实验仿真结果，也是最复杂的地方，还没完成实验仿真，也没法进行结果分析</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95/" rel="tag"># 二叉树算法</a>
+              <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag"># 毕业设计</a>
+              <a href="/tags/Maven/" rel="tag"># Maven</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/04/17/Day6/" rel="prev" title="Day6">
+      <i class="fa fa-chevron-left"></i> Day6
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <p><strong>搭建博客的初衷是写给未来自己的记录话语，记录好自己的学习与生活，希望可以偶尔读一下，自我反思一路走来的风景，以完成自己的情感释放
-~</strong></p>
-<p><br></p>
-<p>联系方式：</p>
-<p><strong>github：</strong><a href="https://github.com/Ning565">Ning565
-(github.com)</a></p>
-<p><strong>QQ：</strong>772199739</p>
-<p><strong>email：</strong>xdu_songjinning@163.com</p>
-<p><br></p>
-<p>送给自己的一句话，希望不管以后走到哪里，都能记得住：<br></p>
-<p><strong>静水流深，无问西东</strong>（Still waters run deep.Forever
-Young）</p>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -283,6 +383,7 @@ Young）</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.</span> <span class="nav-text">二叉树专题总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%95%E8%AE%BE"><span class="nav-number">2.</span> <span class="nav-text">毕设</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
