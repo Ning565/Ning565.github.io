@@ -188,6 +188,282 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/JavaWeb%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="NING565">
+      <meta itemprop="description" content="记录下学习与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SJN的个人小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/20/JavaWeb%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">JavaWeb开发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-19 20:10:06" itemprop="dateCreated datePublished" datetime="2024-03-19T20:10:06Z">2024-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-19 13:53:24" itemprop="dateModified" datetime="2024-04-19T13:53:24Z">2024-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%9B%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">进厂学习记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="maven">Maven</h1>
+<h2 id="maven入门">Maven入门</h2>
+<h3 id="概述">概述</h3>
+<p>Maven是Apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。</p>
+<p><strong>Maven作用：</strong></p>
+<ol type="1">
+<li><strong>依赖管理</strong></li>
+</ol>
+<ul>
+<li>方便快捷的管理项目依赖的资源(jar包)，避免引入大量的jar包，不同jar包之间的版本冲突问题</li>
+<li>当使用maven进行项目依赖(jar包)管理，则很方便的可以解决这个问题。
+我们只需要在maven项目的pom.xml文件中，添加一段<dependency>依赖实现</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>统一项目结构</strong></li>
+</ol>
+<ul>
+<li>提供标准、统一的项目结构，使用不同的开发工具Eclipse或者IDEA创建项目工程时发现项目结构不一致，若创建的是一个maven工程，是可以帮我们自动生成统一、标准的项目目录结构：</li>
+</ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221130220539444.png"
+alt="image-20221130220539444" />
+<figcaption aria-hidden="true">image-20221130220539444</figcaption>
+</figure>
+<p>统一结构为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- src/main/java: java源代码目录</span><br><span class="line">- src/main/resources:  配置文件信息</span><br><span class="line">- src/test/java: 测试代码</span><br><span class="line">- src/test/resources: 测试配置文件信息</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li><strong>项目构建</strong></li>
+</ol>
+<p>maven提供了标准的、跨平台(Linux、Windows、MacOS)
+的自动化项目构建方式<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221130222907628.png"
+alt="image-20221130222907628" /></p>
+<ul>
+<li>Maven中的坐标是==资源的唯一标识== ,
+通过该坐标可以唯一定位资源位置</li>
+<li>使用坐标来定义项目或引入项目中需要的依赖</li>
+</ul>
+<p>坐标，就是资源(jar包)的唯一标识，通过坐标可以定位到所需资源(jar包)位置，坐标由:<groupld>、<artifactld>、<version>三个标签组成；</p>
+<ul>
+<li>groupId：定义当前Maven项目隶属组织名称（通常是域名反写，例如：com.itheima）</li>
+<li>artifactId：定义当前Maven项目名称（通常是模块名称，例如
+order-service、goods-service）</li>
+<li>version：定义当前项目版本号</li>
+</ul>
+<p>依赖管理模型，是使用坐标来描述当前项目依赖哪些第三方jar包</p>
+<p>pom.xml文件中的坐标能找到所要的jar包，利用Maven<strong>仓库</strong></p>
+<h3 id="maven仓库">Maven仓库</h3>
+<p>Maven仓库分为：</p>
+<ul>
+<li>本地仓库：自己计算机上的一个目录(用来存储jar包)</li>
+<li>中央仓库：由Maven团队维护的全球唯一的。仓库地址：https://repo1.maven.org/maven2/</li>
+<li>远程仓库(私服)：一般由公司团队搭建的私有仓库</li>
+</ul>
+<p>当项目中使用坐标引入对应依赖jar包后，首先会查找本地仓库中是否有对应的jar包</p>
+<ul>
+<li><p>如果有，则在项目直接引用</p></li>
+<li><p>如果没有，则去中央仓库中下载对应的jar包到本地仓库</p></li>
+</ul>
+<p>如果还可以搭建远程仓库(私服)，将来jar包的查找顺序则变为： 本地仓库
+--&gt; 远程仓库--&gt; 中央仓库</p>
+<p>由于中央仓库在国外，所以下载jar包速度可能比较慢，而阿里公司提供了一个远程仓库，里面基本也都有开源项目的jar包。</p>
+<p>进入到conf目录下修改settings.xml配置文件即可（<strong>阿里云私服</strong>）==注:
+只可配置一个<mirror>(另一个要注释!)
+，不然两个可能发生冲突，导致jar包无法下载!!!!!!!==</p>
+<h2 id="maven项目">Maven项目</h2>
+<blockquote>
+<ul>
+<li><p>Maven项目的目录结构:</p>
+<p>maven-project01 |--- src (源代码目录和测试代码目录) |--- main
+(源代码目录) |--- java (源代码java文件目录) |--- resources
+(源代码配置文件目录) |--- test (测试代码目录) |--- java
+(测试代码java目录) |--- resources (测试代码配置文件目录) |--- target
+(编译、打包生成文件存放目录)</p></li>
+</ul>
+</blockquote>
+<p>POM (Project Object Model)
+：指的是项目对象模型，用来描述当前的maven项目。</p>
+<ul>
+<li>使用pom.xml文件来实现</li>
+</ul>
+<p>pom.xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- POM模型版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 当前项目坐标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven_project1<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 打包方式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>pom文件详解：</p>
+<ul>
+<li><project> ：pom文件的根标签，表示当前maven项目</li>
+<li><modelVersion> ：声明项目描述遵循哪一个POM模型版本
+<ul>
+<li>虽然模型本身的版本很少改变，但它仍然是必不可少的。目前POM模型版本是4.0.0</li>
+</ul></li>
+<li>坐标 ：<groupId>、<artifactId>、<version>
+<ul>
+<li>定位项目在本地仓库中的位置，由以上三个标签组成一个坐标</li>
+</ul></li>
+<li><packaging>
+：maven项目的打包方式，通常设置为jar或war（默认值：jar）</li>
+</ul>
+<p>使用Maven面板，通过导入pox文件可以快速导入Maven文件</p>
+<h2 id="maven依赖管理">Maven依赖管理</h2>
+<p>依赖：指当前项目运行所需要的jar包。一个项目中可以引入多个依赖：</p>
+<p>例如：在当前工程中，我们需要用到logback来记录日志，此时就可以在maven工程的pom.xml文件中，引入logback的依赖。具体步骤如下：</p>
+<ol type="1">
+<li>在pom.xml中编写<dependencies>标签</li>
+<li>在<dependencies>标签中使用<dependency>引入坐标</li>
+<li>定义坐标的 groupId、artifactId、version</li>
+<li>点击刷新按钮，引入最新加入的坐标
+<ul>
+<li>刷新依赖：保证每一次引入新的依赖，或者修改现有的依赖配置，都可以加入最新的坐标</li>
+</ul></li>
+</ol>
+<p><strong>添加依赖的几种方式：</strong></p>
+<ol type="1">
+<li>利用中央仓库搜索的依赖坐标</li>
+<li>利用IDEA工具搜索依赖 Alt+Insert快捷键 -&gt; Dependencies</li>
+</ol>
+<p><strong>依赖具有传递性</strong></p>
+<p>早期我们没有使用maven时，向项目中添加依赖的jar包，需要把所有的jar包都复制到项目工程下。若需要logback-classic时，由于logback-classic又依赖了logback-core和slf4j，所以必须把这3个jar包全部复制到项目工程下。</p>
+<p><strong>However，</strong>我们现在使用了maven，当项目中需要使用logback-classic时，只需要在pom.xml配置文件中，添加logback-classic的依赖坐标即可，在pom.xml文件中只添加了logback-classic依赖，但由于maven的依赖具有传递性，所以会自动把所依赖的其他jar包也一起导入。</p>
+<p>依赖传递可以分为：</p>
+<ol type="1">
+<li>直接依赖：在当前项目中通过依赖配置建立的依赖关系</li>
+<li>间接依赖：被依赖的资源如果依赖其他资源，当前项目间接依赖其他资源</li>
+</ol>
+<p><strong>排除依赖：</strong></p>
+<p>在maven项目中，我们可以通过排除依赖来实现：A依赖B，B依赖C，如果<strong>A不想将C</strong>依赖进来</p>
+<p>什么是排除依赖？<exclusions> <exclusion></p>
+<ul>
+<li>排除依赖：指主动断开依赖的资源。（被排除的资源无需指定版本）</li>
+</ul>
+<p>依赖排除示例：</p>
+<ul>
+<li>maven-projectA依赖了maven-projectB，maven-projectB依赖了Junit。基于依赖的传递性，所以maven-projectA也依赖了Junit</li>
+</ul>
+<p>使用排除依赖后，maven-projectA不再依赖了Junit</p>
+<p><strong>依赖范围：</strong></p>
+<p>在项目中导入依赖的jar包后，默认情况下，可以在任何地方使用。</p>
+<p>如果希望限制依赖的使用范围，可以通过<scope>标签设置其作用范围。</p>
+<p>作用范围：</p>
+<ol type="1">
+<li>主程序范围有效（main文件夹范围内）</li>
+<li>测试程序范围有效（test文件夹范围内）</li>
+<li>是否参与打包运行（package指令范围内）</li>
+</ol>
+<h2 id="maven生命周期">Maven生命周期</h2>
+<p>Maven的生命周期就是为了对所有的构建过程进行抽象和统一。
+描述了一次项目构建，经历哪些阶段。在Maven出现之前，项目构建的生命周期就已经存在，软件开发人员每天都在对项目进行<strong>清理，编译，测试及部署</strong>。虽然大家都在不停地做构建工作，但公司和公司间、项目和项目间，往往使用不同的方式做类似的工作。</p>
+<p>Maven从大量项目和构建工具中学习和反思，然后总结了一套高度完美的，易扩展的项目构建生命周期。这个生命周期包含了项目的清理，初始化，编译，测试，打包，集成测试，验证，部署和站点生成等几乎所有构建步骤。</p>
+<p>Maven对项目构建的生命周期划分为3套（相互独立）：</p>
+<ul>
+<li>clean：清理工作。</li>
+<li>default：核心工作。如：编译、测试、打包、安装、部署等。</li>
+<li>site：生成报告、发布站点等。</li>
+</ul>
+<p>主要关注以下几个：</p>
+<p>• clean：移除上一次构建生成的文件</p>
+<p>• compile：编译项目源代码</p>
+<p>• test：使用合适的单元测试框架运行测试(junit)</p>
+<p>• package：将编译后的文件打包，如：jar、war等</p>
+<p>• install：安装项目到本地仓库</p>
+<p>Maven的生命周期是抽象的，这意味着生命周期本身不做任何实际工作。<strong>在Maven的设计中，实际任务（如源代码编译）都交由插件来完成。</strong></p>
+<p><strong>生命周期的顺序</strong>是：clean --&gt; validate --&gt;
+compile --&gt; test --&gt; package --&gt; verify --&gt; install --&gt;
+site --&gt; deploy</p>
+<p>我们需要关注的就是：clean --&gt; compile --&gt; test --&gt; package
+--&gt; install</p>
+<p>在<strong>同一套</strong>生命周期中，我们在执行后面的生命周期时，前面的生命周期都会执行。（执行package时，compile会执行，但clean不会，因为不是一套）</p>
+<p>在日常开发中，当我们要执行指定的生命周期时，有两种执行方式：</p>
+<ol type="1">
+<li>在idea工具右侧的maven工具栏中，选择对应的生命周期，双击执行</li>
+<li>在DOS命令行中，通过maven命令执行</li>
+</ol>
+<p>compile后：只对main文件夹（主函数）源代码编译，生成target目录</p>
+<p>test：对test文件夹（测试程序）进行编译</p>
+<p>package：对项目打包，生成jar包，打包后生成的jar包放在target目录下</p>
+<p>install：把jar文件安装在当前项目文件夹指定坐标路径下（target）</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221201170830837.png"
+alt="image-20221201170830837" />
+<figcaption aria-hidden="true">image-20221201170830837</figcaption>
+</figure>
+<p>clean：删除target目录</p>
+<p>DOS操作：需要在Poweshell窗口操作 mvn clean....</p>
+<h2 id="其他maven知识点持续补充">其他Maven知识点（持续补充）</h2>
+<p>有时候给idea配置完maven仓库信息后，在idea中依然搜索不到仓库中的jar包。这是因为仓库中的jar包索引尚未更新到idea中。这个时候我们就需要更新idea中maven的索引了，具体做法如下：</p>
+<p>打开设置----搜索maven----Repositories----选中本地仓库-----点击Update</p>
+<p>清理Maven仓库：初始情况下，我们的本地仓库是没有任何jar包的，此时会从私服去下载（如果没有配置，就直接从中央仓库去下载），可能由于网络的原因，jar包下载不完全，这些不完整的jar包都是以lastUpdated结尾。此时，maven不会再重新帮你下载，需要你删除这些以lastUpdated结尾的文件，然后maven才会再次自动下载这些jar包。</p>
+<p>如果本地仓库中有很多这样的以lastUpadted结尾的文件，可以定义一个批处理文件，在其中编写如下脚本来删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set REPOSITORY_PATH=E:\develop\apache-maven-3.6.1\mvn_repo</span><br><span class="line">rem 正在搜索...</span><br><span class="line"></span><br><span class="line">del /s /q %REPOSITORY_PATH%\*.lastUpdated</span><br><span class="line"></span><br><span class="line">rem 搜索完毕</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+<p>操作步骤如下：</p>
+<p>1). 定义批处理文件del_lastUpdated.bat
+(直接创建一个文本文件，命名为del_lastUpdated，后缀名直接改为bat即可
+)</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221214154949482.png"
+alt="image-20221214154949482" />
+<figcaption aria-hidden="true">image-20221214154949482</figcaption>
+</figure>
+<p>2). 在上面的bat文件上<strong>右键---》编辑</strong>
+。修改文件：REPOSITORY为自己的仓库 mvn-3.6.1/mvn_repo</p>
+<p>修改完毕后，双击运行即可删除maven仓库中的残留文件。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/04/20/Day7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -419,6 +695,562 @@ alt="image-20240416220125695" />
 <p>学习 and
 复习了Web前端开发的基础知识，如Web后端开发的基础(HTTP协议、请求响应)，并且也复习了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。</p>
 <p>还没学到案例部分，接下来学习的就是就通过一个案例（智能学习系统），来将前端开发、后端开发、数据库整合起来，涉及到SpringBootWeb的案例、登录认证、AOP等知识。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/Day2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="NING565">
+      <meta itemprop="description" content="记录下学习与生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SJN的个人小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/20/Day2/" class="post-title-link" itemprop="url">Day2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-19 16:56:02" itemprop="dateCreated datePublished" datetime="2024-03-19T16:56:02Z">2024-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-09 13:55:45" itemprop="dateModified" datetime="2024-04-09T13:55:45Z">2024-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%9B%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">进厂学习记录</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总结一下最近没来得及总结的内容与今日学习内容，由于Java
+Web开发目前没学完，于是边学边补不会的内容：</p>
+<h1 id="项目开发">项目开发</h1>
+<h2 id="软件开发与角色">1.软件开发与角色</h2>
+<h3 id="软件开发">软件开发</h3>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106162815172.png"
+alt="image-20221106162815172" />
+<figcaption aria-hidden="true">image-20221106162815172</figcaption>
+</figure>
+<p><strong>软件开发流程</strong>：</p>
+<p>需求分析：完成需求规格说明书、产品原型编写。</p>
+<p>设计：UI设计、数据库设计、接口设计</p>
+<p>编码：编写项目代码、并完成单元测试。</p>
+<p>测试：测试人员,对部署在测试环境的项目进行功能测试,
+并出具测试报告。</p>
+<p>上线运维：会由运维人员准备服务器上的软件环境安装、配置， 配置完毕后，
+再将我们开发好的项目，部署在服务器上运行。</p>
+<h3 id="角色分工">角色分工</h3>
+<p><strong>招聘/升职岗位</strong>：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">岗位/角色</th>
+<th>对应阶段</th>
+<th style="text-align: left;">职责/分工</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">项目经理</td>
+<td>全阶段</td>
+<td style="text-align: left;">对整个项目负责，任务分配、把控进度</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">产品经理</td>
+<td>需求分析</td>
+<td
+style="text-align: left;">进行需求调研，输出需求调研文档、产品原型等</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UI设计师</td>
+<td>设计</td>
+<td style="text-align: left;">根据产品原型输出界面效果图</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">架构师</td>
+<td>设计</td>
+<td style="text-align: left;">项目整体架构设计、技术选型等</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><font color='red'>开发工程师</font></td>
+<td><font color='red'>编码</font></td>
+<td style="text-align: left;"><font color='red'>功能代码实现</font></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">测试工程师</td>
+<td>测试</td>
+<td style="text-align: left;">编写测试用例，输出测试报告</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">运维工程师</td>
+<td>上线运维</td>
+<td style="text-align: left;">软件环境搭建、项目上线</td>
+</tr>
+</tbody>
+</table>
+<h3 id="大厂研发流程">大厂研发流程</h3>
+<p>需求文档（确定需求包括的功能/确定开发包括的难点） -&gt;
+架构图（模块间的依赖关系，角色的分工） -&gt;
+确定协议（后端间，前后端间通讯协议，兼容性+易于维护） -&gt;
+设计数据结构和算法（格式/容器处理数据，算法大多直接调包） -&gt;
+预估容量与性能 -&gt; 考虑部署（环境，分布式，风险意识）-&gt;
+设计评审（彼此评审，多方面评价）-&gt;
+写代码（不仅在一个地方看到写代码是脑力活了）-&gt; 自测 -&gt;
+联调（费时费力，一定先自测好） -&gt; 交给测试岗 -&gt; code
+review（反复修改） -&gt; 合入主干 -&gt; 发布（考虑兼容性）</p>
+<h2 id="sky项目初步介绍">2.sky项目初步介绍</h2>
+<h3 id="技术栈">技术栈</h3>
+<p><strong>用户层：</strong>系统管理后台的前端页面</p>
+<p><strong>网关层：</strong>Nginx是一个服务器，主要用来作为Http服务器，部署静态资源，访问性能高。</p>
+<p>Nginx中还有两个比较重要的作用： <strong>反向代理和负载均衡</strong>，
+在进行项目部署时，要实现Tomcat的负载均衡，就可以通过Nginx来实现。</p>
+<p><strong>应用层：</strong></p>
+<p>SpringBoot： 快速构建Spring项目, 采用 "约定优于配置" 的思想,
+简化Spring项目的配置开发。</p>
+<p>SpringMVC：SpringMVC是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合，可以无缝集成。</p>
+<p>Spring Task: 由Spring提供的定时任务框架。</p>
+<p>httpclient: 主要实现了对http请求的发送。</p>
+<p>Spring Cache: 由Spring提供的数据缓存框架</p>
+<p>JWT: 用于对应用程序上的用户进行身份验证的标记。</p>
+<p>阿里云OSS: 对象存储服务，在项目中主要存储文件，如图片等。</p>
+<p>Swagger： 可以自动的帮助开发人员生成接口文档，并对接口进行测试。</p>
+<p>POI: 封装了对Excel表格的常用操作。</p>
+<p>WebSocket:
+一种通信网络协议，使客户端和服务器之间的数据交换更加简单，用于项目的来单、催单功能实现。</p>
+<p><strong>数据层：</strong></p>
+<p>MySQL： <strong>关系型数据库</strong>,
+本项目的核心业务数据都会采用MySQL进行存储。</p>
+<p>Redis： 基于key-value格式存储的内存数据库, 访问速度快,
+经常使用它做<strong>缓存</strong>。</p>
+<p>Mybatis：
+本项目<strong>持久层</strong>（项目的持久层是指在软件开发中负责处理数据持久化的部分，也称为数据访问层或数据持久化层）将会使用Mybatis开发。</p>
+<p>pagehelper: 分页插件。</p>
+<p>spring data redis: 简化java代码操作Redis的API。</p>
+<p><strong>工具：</strong></p>
+<p>git: 版本控制工具, 在团队协作中,
+使用该工具对项目中的代码进行管理。</p>
+<p>maven: 项目构建工具。</p>
+<p>junit：单元测试工具，开发人员功能实现完毕后，需要通过junit对功能进行单元测试。</p>
+<p>postman:
+接口测工具，模拟用户发起的各类HTTP请求，获取对应的响应结果。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106185646994.png"
+alt="image-20221106185646994" />
+<figcaption aria-hidden="true">image-20221106185646994</figcaption>
+</figure>
+<h3 id="idea搭建环境"><strong>IDEA搭建环境</strong></h3>
+<p><strong>Git</strong>:<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43252521/article/details/123959391">在
+IDEA 中使用 Git 图文教程_idea连接git-CSDN博客</a></p>
+<p>更改文件夹后出错，导致无法commit and push：</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/tcjy1000/article/details/127129224">git
+fatal: detected dubious ownership in repository 解决方法_detected
+dubious ownership in repository at-CSDN博客</a></p>
+<p><strong>连接数据库</strong>：</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Royalic/article/details/119604763">超详细的Idea与MySQL的连接（从入门到精通）_idea连接数据库-CSDN博客</a></p>
+<p>更改mysql文件夹名称，出现ERROR2003:</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/661201217">【已解决】mysql：ERROR
+2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+- 知乎 (zhihu.com)</a></p>
+<h3 id="nginx作用">nginx作用</h3>
+<h4 id="反向代理">反向代理</h4>
+<p>前端请求地址：http://localhost/api/employee/login</p>
+<p>后端接口地址：http://localhost:8080/admin/employee/login</p>
+<p>很明显，两个地址不一致，那是如何请求到后端服务的呢？</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221107152041371.png"
+alt="image-20221107152041371" />
+<figcaption aria-hidden="true">image-20221107152041371</figcaption>
+</figure>
+<p><strong>nginx 反向代理</strong>，就是将前端发送的动态请求由 nginx
+转发到后端服务器，而不是不直接发给后端</p>
+<p><strong>好处：</strong></p>
+<ul>
+<li><p>提高访问速度</p>
+<p>因为nginx本身可以进行缓存，如果访问的同一接口，并且做了数据缓存，nginx就直接可把数据返回，不需要真正地访问服务端，从而提高访问速度。</p></li>
+<li><p>进行负载均衡</p>
+<p>所谓负载均衡,就是把大量的请求按照我们指定的方式均衡的分配给集群中的每台服务器。</p></li>
+<li><p>保证后端服务安全</p>
+<p>因为一般后台服务地址不会暴露，所以使用浏览器不能直接访问，可以把nginx作为请求访问的入口，请求到达nginx后转发到具体的服务中，从而保证后端服务的安全。</p></li>
+</ul>
+<p><strong>配置：</strong></p>
+<p><strong>nginx 反向代理的配置方式 conf文件中：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8080/admin/; <span class="comment">#反向代理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>proxy_pass：</strong>该指令是用来设置代理服务器的地址，可以是主机名称，IP地址加端口号等形式。</p>
+<h4 id="负载均衡">负载均衡</h4>
+<p>当如果服务以集群的方式进行部署时，那nginx在转发请求到服务器时就需要做相应的负载均衡。其实，负载均衡从本质上来说也是基于反向代理来实现的，最终都是转发请求。</p>
+<p><strong>nginx 负载均衡的配置方式：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://webservers/admin;<span class="comment">#负载均衡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>upstream：</strong>如果代理服务器是一组服务器的话，我们可以使用upstream指令配置后端服务器组。</p>
+<p>如上代码的含义是：监听80端口号， 然后当我们访问
+http://localhost:80/api/../..这样的接口的时候，它会通过 location /api/
+{} 这样的反向代理到
+http://webservers/admin，根据webservers名称找到一组服务器，根据设置的负载均衡策略(默认是轮询)转发到具体的服务器。</p>
+<p><strong>注：</strong>upstream后面的名称可自定义，但要上下保持一致。</p>
+<p><strong>nginx 负载均衡策略：</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>名称</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>轮询</td>
+<td>默认方式</td>
+</tr>
+<tr class="even">
+<td>weight</td>
+<td>权重方式，默认为1，权重越高，被分配的客户端请求就越多</td>
+</tr>
+<tr class="odd">
+<td>ip_hash</td>
+<td>依据ip分配方式，这样每个访客可以固定访问一个后端服务</td>
+</tr>
+<tr class="even">
+<td>least_conn</td>
+<td>依据最少连接方式，把请求优先分配给连接数少的后端服务</td>
+</tr>
+<tr class="odd">
+<td>url_hash</td>
+<td>依据url分配方式，这样相同的url会被分配到同一个后端服务</td>
+</tr>
+<tr class="even">
+<td>fair</td>
+<td>依据响应时间方式，响应时间短的服务将会被优先分配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="加密登录">加密登录</h3>
+<p><strong>STEP1</strong>：修改数据库中的密码password值，为md5（一个hash算法）加密后的内容</p>
+<p><strong>STEP2</strong>：修改Java代码，将前端提交的代码通过md5加密再对比数据库中固定内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password = DigestUtils.md5DigestAsHex(password.getBytes());</span><br></pre></td></tr></table></figure>
+<h3 id="导入接口文档">导入接口文档</h3>
+<p><strong>方式：</strong>YApi导入.json数据 https://yapi.pro/</p>
+<p>YApi是一个开源的接口管理平台，它主要用于帮助团队更好地管理和维护API（Application
+Programming Interface）接口文档。</p>
+<h3 id="后端自测">后端自测</h3>
+<p><strong>利用Swagger</strong>：</p>
+<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful
+风格的 Web 服务(<a target="_blank" rel="noopener" href="https://swagger.io/"
+class="uri">https://swagger.io/</a>)。 它的主要作用是：</p>
+<ol type="1">
+<li><p>使得前后端分离开发更加方便，有利于团队协作</p></li>
+<li><p>接口的文档在线自动生成，降低后端开发人员编写接口文档的负担</p></li>
+<li><p>功能测试</p>
+<p>Spring已经将Swagger纳入自身的标准，建立了Spring-swagger项目，现在叫Springfox。通过在项目中引入Springfox
+，即可非常简单快捷的使用Swagger。</p></li>
+</ol>
+<p>目前都使用knife4j框架：Java
+MVC框架集成Swagger生成文档API增强解决方案</p>
+<p>1.导入Maven依赖 pox.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.在配置类中加入 knife4j 相关配置</p>
+<p>3.设置静态资源映射，否则接口文档页面无法访问</p>
+<p>4.访问测试，接口文档路径在原路径后加入：/doc.html(静态资源映射)</p>
+<p>接口测试:测试登录功能</p>
+<p>Swagger常用注解：通过注解可以控制生成的接口文档，使接口文档拥有更好的可读性，常用注解如下：</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>注解</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="citation"
+data-cites="Api">@Api</span></strong></td>
+<td>用在类上，例如Controller，表示对类的说明</td>
+</tr>
+<tr class="even">
+<td><strong><span class="citation"
+data-cites="ApiModel">@ApiModel</span></strong></td>
+<td>用在类上，例如entity、DTO、VO</td>
+</tr>
+<tr class="odd">
+<td><strong><span class="citation"
+data-cites="ApiModelProperty">@ApiModelProperty</span></strong></td>
+<td>用在属性上，描述属性信息</td>
+</tr>
+<tr class="even">
+<td><strong><span class="citation"
+data-cites="ApiOperation">@ApiOperation</span></strong></td>
+<td>用在方法上，例如Controller的方法，说明方法的用途、作用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Swagger PK YApi</strong>：</p>
+<p>1、Yapi 是设计阶段使用的工具，管理和维护接口</p>
+<p>2、Swagger 在开发阶段使用的框架，帮助后端开发人员做后端的接口测试</p>
+<h2 id="实现功能">3.实现功能</h2>
+<p>实现任何一个功能都要有如下几步：</p>
+<p><strong>需求分析与设计-&gt;代码开发-&gt;功能测试-&gt;代码完善</strong></p>
+<p>一般在做需求分析时，往往都是对照着产品原型进行分析，因为产品原型比较直观，便于我们理解业务，设计出来表单内容/文档/接口</p>
+<p><strong>代码开发</strong>是根据需求分析的内容，结合代码的原本框架，根据功能添加新的部分（选择实现功能的方法）</p>
+<p><strong>功能测试实现方式：</strong></p>
+<ul>
+<li>通过接口文档测试 swagger的doc/html，向后端发送数据</li>
+<li>通过前后端联调测试：nginx启动http服务，在前端直接发送数据到后端</li>
+</ul>
+<p><strong>代码完善：</strong>针对功能测试中程序出现的问题，调整代码的内容，接下来在实现功能中，我们将记录重点集中在<strong>代码开发和代码完善</strong></p>
+<h3 id="新增员工">新增员工</h3>
+<h4 id="代码开发">代码开发</h4>
+<p>根据新增员工接口设计对应的DTO（当前端提交的数据和实体类中对应的属性差别比较大时，建议使用DTO来封装数据）</p>
+<p><strong>什么是DTO？</strong></p>
+<p>Java是<strong>面向对象（object）的</strong>，在开发过程中，我们会封装各种各样的实体类</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/680050977">一篇文章带你搞懂Controller、Service等各层的功能与作用
+- 知乎 (zhihu.com)</a></p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>实体类</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PO持久化对象（Persistent Object）</td>
+<td>用于表示数据库中的实体或表的映射 通常与数据库表的结构和字段对应
+PO的属性对应数据库表的字段，可以进行持久化操作（新增、查询、更新、删除）</td>
+</tr>
+<tr class="even">
+<td><strong>VO值对象（Value Object）</strong></td>
+<td>VO是值对象，用于封装数据，通常是不可变的，用于传递数据而不包含业务逻辑，VO可以用于在不同层之间传递数据，如前端和后端之间，后端的返回的到前端的数据只需要保留必要的字段就可以，将这些必要的字段封装起来就是VO</td>
+</tr>
+<tr class="odd">
+<td>BO业务对象（Business Object）</td>
+<td>BO是业务对象，用于封装业务逻辑和操作包含与业务相关的方法和属性，用于实现业务规则和操作，BO通常与领域模型紧密相关，用于表示业务概念和业务流程</td>
+</tr>
+<tr class="even">
+<td>DO数据对象（Data/Domain Object）</td>
+<td>DO通常与BO和PO相对应，用于实现领域模型和业务逻辑，用于表示从数据存储中得到的数据</td>
+</tr>
+<tr class="odd">
+<td>DAO数据访问对象（Data Access Object）</td>
+<td>DAO是数据访问对象，用于封装对数据库的访问操作，也就是我们常说的Dao层<br/>提供对数据库的增删改查等操作的接口<br/>DAO可以隐藏底层数据库的具体实现细节，使得业务逻辑层与数据库解耦</td>
+</tr>
+<tr class="even">
+<td><strong>DTO数据传输对象（Data Transfer Object）</strong></td>
+<td>DTO是<strong>数据传输对象</strong>，用于在不同层之间传输数据<br/>通常用于优化数据传输的性能和减少网络通信的开销。<br/>DTO可以封装多个对象的数据，以减少网络请求次数<br/>如果说VO一般用于前端和后端之后传输数据，那么DTO就是在后端的不同层之间传递数据，例如controller层和service层或者在服务之间结构调用的时候使用DTO</td>
+</tr>
+<tr class="odd">
+<td>POJO普通Java对象（Plain Old Java Object）</td>
+<td>POJO是一个简单的Java对象，没有特定的限制和约束<br/>是一种普通的Java类，不依赖于特定的框架或接口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Service层：服务层</strong>
+由于Dao里面存放了对表操作的方法，entity类中存放了映射表的POJO类。Service的作用就是将Dao和entity类整合起来，进行再次封装，封装成一个方法，我们调用这个方法，就实现了对某个表的增删改查操作。</p>
+<p><strong>Controller：控制层</strong>
+负责请求转发，接受页面传递过来的参数，根据参数的不同，是调用不同的Service层方法进行操作，操作完成后将返回结果传递给页面。</p>
+<p><strong>数据访问层：</strong></p>
+<p><strong>Mapper：</strong>Mapper模式通常是指对象-关系映射（ORM）中的组件。它负责将<strong>领域对象和数据库表</strong>之间进行映射，实现数据的读取和写入。Mapper将<strong>数据库操作转换为对象操作</strong>，屏蔽了底层数据库的细节，使得开发人员可以使用<strong>面向对象</strong>的方式操作数据。
+它可以处理对象与关系型数据库之间的转换，包括查询、插入、更新和删除等操作。</p>
+<p><strong>DAO：</strong>DAO全称是（Data Access Objects)
+，数据库访问对象，主要的功能就是用于进行数据操作的，在程序的标准开发架构中属于数据访问层的操作。可以简单理解为一张数据表，就有一个DAO与之对应，与数据库的操作，增删改查等方法。DAO层可以实现对数据的持久化操作，使得业务逻辑可以通过DAO的接口来访问数据，而不需要关心具体的数据访问实现方式。</p>
+<p><strong>STEP1：自定义DTO类。</strong></p>
+<p>进入sky-pojo模块，在com.sky.dto包下，已定义EmployeeDTO</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sky.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDTO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String idNumber;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>STEP2：Controller层操作</strong></p>
+<p><strong>EmployeeController中创建新增员工方法</strong></p>
+<p>进入到sky-server模块中，在com.sky.controller.admin包下，在EmployeeController中创建新增员工方法，接收前端提交的参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@PostMapping</span></span><br><span class="line">   <span class="meta">@ApiOperation(&quot;新增员工&quot;)</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> EmployeeDTO employeeDTO)</span>&#123;</span><br><span class="line">       log.info(<span class="string">&quot;新增员工：&#123;&#125;&quot;</span>,employeeDTO);</span><br><span class="line">       employeeService.save(employeeDTO);<span class="comment">//该方法后续步骤会定义</span></span><br><span class="line">       <span class="keyword">return</span> Result.success();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注：</strong>Result类定义了后端统一返回结果格式。（success(有无参数)
+error）</p>
+<p><strong>STEP3：Service层接口与实现</strong></p>
+<p><strong>在EmployeeService接口中声明新增员工方法</strong></p>
+<p>进入到sky-server模块中,com.sky.server.EmployeeService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span>;</span><br></pre></td></tr></table></figure>
+<p>在接口的实现中：</p>
+<p><strong>在EmployeeServiceImpl中实现新增员工方法</strong></p>
+<p>com.sky.server.impl.EmployeeServiceImpl中创建方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span> &#123;</span><br><span class="line">       <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//对象属性拷贝</span></span><br><span class="line">       BeanUtils.copyProperties(employeeDTO, employee);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置账号的状态，默认正常状态 1表示正常 0表示锁定，StatusConstant表示状态常量</span></span><br><span class="line">       employee.setStatus(StatusConstant.ENABLE);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置密码，默认密码123456，加密后的</span></span><br><span class="line">       employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置当前记录的创建时间和修改时间</span></span><br><span class="line">       employee.setCreateTime(LocalDateTime.now());</span><br><span class="line">       employee.setUpdateTime(LocalDateTime.now());</span><br><span class="line"></span><br><span class="line">       <span class="comment">//todo 设置当前记录创建人id和修改人id</span></span><br><span class="line">       employee.setCreateUser(<span class="number">10L</span>);<span class="comment">//目前写个假数据，后期修改</span></span><br><span class="line">       employee.setUpdateUser(<span class="number">10L</span>);</span><br><span class="line"></span><br><span class="line">       employeeMapper.insert(employee);<span class="comment">//后续步骤定义</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>STEP4：Mapper层</strong></p>
+<p><strong>在EmployeeMapper中声明insert方法</strong></p>
+<p>com.sky.EmployeeMapper中添加方法</p>
+<p>由于SQL语句不是很复杂，因而此处用注解@Insert实现：注意在values值后加的内容要用驼峰命名法（application.yml已开启驼峰命名），而不是和数据库中的名称一致</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 插入员工数据</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employee</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Insert(&quot;insert into employee (name, username, password, phone, sex, id_number, create_time, update_time, create_user, update_user,status) &quot; +</span></span><br><span class="line"><span class="meta">           &quot;values &quot; +</span></span><br><span class="line"><span class="meta">           &quot;(#&#123;name&#125;,#&#123;username&#125;,#&#123;password&#125;,#&#123;phone&#125;,#&#123;sex&#125;,#&#123;idNumber&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;,#&#123;createUser&#125;,#&#123;updateUser&#125;,#&#123;status&#125;)&quot;)</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Employee employee)</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="功能测试">功能测试</h4>
+<p><strong>1.接口文档测试</strong></p>
+<p><strong>启动服务：</strong>访问http://localhost:8080/doc.html，进入新增员工接口</p>
+<p>json数据：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idNumber&quot;</span><span class="punctuation">:</span> <span class="string">&quot;111222333444555666&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xiaozhi&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;phone&quot;</span><span class="punctuation">:</span> <span class="string">&quot;13812344321&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;sex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小智&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>响应码：401
+报错，原因：JwtTokenAdminInterceptor拦截器，需要校验token，由于JWT令牌校验失败，导致EmployeeController的save方法没有被调用，被拦截器拦截了</p>
+<p><strong>解决方法：</strong>调用员工登录接口获得一个合法的JWT令牌，使用admin用户登录获取令牌，将合法的JWT令牌添加到全局参数中</p>
+<p>文档管理--&gt;全局参数设置--&gt;添加参数，使得每次发送的json信息都会增加一个token头部，是合法的令牌；</p>
+<p><strong>什么是JWT？</strong></p>
+<p>https://blog.csdn.net/java_mindmap/article/details/123343404</p>
+<p><strong>JWT概念</strong></p>
+<p>JWT ， 全写JSON Web Token,
+是开放的行业标准RFC7591，它定义了一种紧凑的、自包含的方式，用于作为JSON对象在各方之间安全地传输信息。该信息可以被验证和信任，因为它是数字签名的。</p>
+<p>JWT加密JSON，保存在客户端，不需要在服务端保存会话信息，可以应用在前后端分离的用户验证上，后端对前端输入的用户信息进行加密产生一个令牌字符串，
+前端再次请求时附加此字符串，后端再使用算法解密。</p>
+<p><strong>JWT使用场景：</strong></p>
+<ul>
+<li>Authorization (授权) :
+这是使用JWT的最常见场景。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是现在广泛使用的JWT的一个特性，因为它的开销很小，并且可以轻松地跨域使用。</li>
+<li>Information Exchange (信息交换) :
+对于安全的在各方之间传输信息而言，JSON Web
+Tokens无疑是一种很好的方式。因为JWT可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。另外，由于签名是使用头和有效负载计算的，您还可以验证内容没有被篡改。</li>
+</ul>
+<p><strong>流程：</strong></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/56e4f404cc63cfc2ac31283c8e944613.png"
+alt="56e4f404cc63cfc2ac31283c8e944613.png" />
+<figcaption
+aria-hidden="true">56e4f404cc63cfc2ac31283c8e944613.png</figcaption>
+</figure>
+<p>JSON Web
+Token由三部分组成，它们之间用圆点(.)连接。这三部分分别是：</p>
+<ul>
+<li><p>Header：Header 部分是一个 JSON
+对象，存放Token类型和加密算法。加密算法常见的有MD5、SHA、HMAC（ Hash
+Message Authentication Code）。</p></li>
+<li><p>Payload：存放有效信息，包括</p>
+<ul>
+<li>标准的声明，类似开发语言总的关键字，如
+<ul>
+<li>iss（Issuser） - 签发者</li>
+<li>sub Subject 面向主体</li>
+<li>aud Audience 接收方</li>
+<li>exp Expiration time 过期时间戳</li>
+<li>nbf Not Before, 开始生效时间戳</li>
+<li>iat(Issued at) 签发时间</li>
+<li>jti(JWT ID)： 唯一标识</li>
+</ul></li>
+<li>公共的声明：一般添加业务相关的必要信息，因为可解密，不建议敏感信息。</li>
+<li>私有的声明：提供者和消费者共同定义的声明，Base64对称解密，不建议敏感信息</li>
+</ul></li>
+<li><p>Signature签名：对前两个部分的签名，防止数据篡改。</p>
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用
+Header 里面指定的签名算法（默认是 HMAC
+SHA256），按照下面的公式产生签名。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure>
+<p>算出签名以后，把 Header、Payload、Signature
+三个部分拼成一个字符串，每个部分之间用"点"（.）分隔，就可以返回给用户。</p>
+<p>secret-密钥
+使用header中声明的加密算法对Header和payload的加密连接字符串进行secret组合加密。密钥保存在服务端，服务端根据密钥进行解密验证。</p></li>
+</ul>
+<p>标准的声明，类似开发语言总的关键字</p>
+<p>格式：xxxx.yyyy.zzzz</p>
+<p><strong>java-jwt/jjwt</strong></p>
+<p>java-jwt是Java语言中推荐的JWT实现库，使用Maven导入如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;<span class="number">3.8</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>产生加密Token</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> JWT.create()</span><br><span class="line">  .withExpiresAt(newDate(System.currentTimeMillis()))  <span class="comment">//设置过期时间</span></span><br><span class="line">  .withAudience(<span class="string">&quot;user1&quot;</span>) <span class="comment">//设置接受方信息，一般时登录用户</span></span><br><span class="line">  .sign(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>));  <span class="comment">//使用HMAC算法，111111作为密钥加密</span></span><br></pre></td></tr></table></figure>
+<p><strong>解密Token获取负载信息并验证Token是否有效</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">userId</span> <span class="operator">=</span> JWT.decode(token).getAudience().get(<span class="number">0</span>);</span><br><span class="line">Assertions.assertEquals(<span class="string">&quot;user1&quot;</span>, userId);</span><br><span class="line"><span class="type">JWTVerifier</span> <span class="variable">jwtVerifier</span> <span class="operator">=</span> JWT.require(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>)).build();</span><br><span class="line">jwtVerifier.verify(token);</span><br></pre></td></tr></table></figure>
+<p>所谓的Token，其实就是服务端生成的一串加密字符串、以作客户端进行请求的一个“令牌”。当用户第一次使用账号密码成功进行登录后，服务器便生成一个Token及Token失效时间并将此返回给客户端，若成功登陆，以后客户端只需在有效时间内带上这个Token前来请求数据即可，无需再次带上用户名和密码。</p>
+<p><strong>2.前后端联调测试</strong></p>
+<p>启动nginx,访问
+http://localhost，通过前端员工管理界面添加信息，查看emplyee表，发现测试成功</p>
+<h4 id="代码完善">代码完善</h4>
+<p>目前，程序存在的问题主要有两个：</p>
+<ul>
+<li>录入的用户名已存在，抛出的异常后没有处理</li>
+<li>新增员工时，创建人id和修改人id设置为固定值</li>
+</ul>
+<p>接下来，我们对上述两个问题依次进行分析和解决。</p>
+<p><strong>问题一的解决</strong>：</p>
+<p>使得每次录入存在用户名时，前端会收到提示消息，通过全局异常处理器来处理，进入到sky-server模块，com.sky.hander包下，GlobalExceptionHandler.java添加方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 处理SQL异常</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> ex</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@ExceptionHandler</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">exceptionHandler</span><span class="params">(SQLIntegrityConstraintViolationException ex)</span>&#123;</span><br><span class="line">       <span class="comment">//Duplicate entry &#x27;zhangsan&#x27; for key &#x27;employee.idx_username&#x27;</span></span><br><span class="line">       <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> ex.getMessage();</span><br><span class="line">       <span class="keyword">if</span>(message.contains(<span class="string">&quot;Duplicate entry&quot;</span>))&#123;</span><br><span class="line">           String[] split = message.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> split[<span class="number">2</span>];</span><br><span class="line">           <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> username + MessageConstant.ALREADY_EXISTS;<span class="comment">//Message...是提前定义好的常量类</span></span><br><span class="line">           <span class="keyword">return</span> Result.error(msg);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> Result.error(MessageConstant.UNKNOWN_ERROR);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>问题二的解决：</strong></p>
+<p><strong>在员工登录成功后会生成JWT令牌并响应给前端：</strong></p>
+<p>JWT响应过程：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221111201922482.png"
+alt="image-20221111201922482" />
+<figcaption aria-hidden="true">image-20221111201922482</figcaption>
+</figure>
+<p>后续请求中，前端会携带<strong>JWT令牌</strong>，通过JWT令牌可以<strong>解析出</strong>当前登录员工id，解析出登录员工id后，如何传递给Service的save方法？</p>
+<p>通过<strong>ThreadLocal</strong></p>
+<p>ThreadLocal 并不是一个Thread，而是Thread的局部变量。
+ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。</p>
+<p><strong>常用方法：</strong></p>
+<ul>
+<li>public void set(T value) 设置当前线程的线程局部变量的值</li>
+<li>public T get() 返回当前线程所对应的线程局部变量的值</li>
+<li>public void remove() 移除当前线程的线程局部变量</li>
+</ul>
+<p>于是在初始工程中已经封装了 ThreadLocal
+操作的工具类前提下，修改代码：</p>
+<p>在拦截器中interceptor解析出当前登录员工id，并放入<strong>线程局部变量中
+-&gt;在Service中获取线程局部变量中的值</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">Long</span> <span class="variable">empId</span> <span class="operator">=</span> Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());</span><br><span class="line">            log.info(<span class="string">&quot;当前员工id：&quot;</span>, empId);</span><br><span class="line">            <span class="comment">/////将用户id存储到ThreadLocal////////</span></span><br><span class="line">            BaseContext.setCurrentId(empId);</span><br><span class="line">            <span class="comment">///////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在save方法中加入：</span></span><br><span class="line">employee.setUpdateUser(BaseContext.getCurrentId());</span><br><span class="line"><span class="comment">//从线程池局部变量取值</span></span><br></pre></td></tr></table></figure>
+<p>即可完成创建人id的更新</p>
+<p>开始刷，随后有时间再去看acwing的算法基础课、提高课、labulagu等（侧重于系统化长时间学习，ACMer，针对思维）</p>
 
       
     </div>
@@ -1331,282 +2163,6 @@ repository”按钮，就成功地创建了一个新的Git仓库</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/JavaWeb%E5%BC%80%E5%8F%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="NING565">
-      <meta itemprop="description" content="记录下学习与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SJN的个人小屋">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/20/JavaWeb%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">JavaWeb开发</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-03-19 20:10:06" itemprop="dateCreated datePublished" datetime="2024-03-19T20:10:06Z">2024-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-19 13:53:24" itemprop="dateModified" datetime="2024-04-19T13:53:24Z">2024-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%9B%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">进厂学习记录</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="maven">Maven</h1>
-<h2 id="maven入门">Maven入门</h2>
-<h3 id="概述">概述</h3>
-<p>Maven是Apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。</p>
-<p><strong>Maven作用：</strong></p>
-<ol type="1">
-<li><strong>依赖管理</strong></li>
-</ol>
-<ul>
-<li>方便快捷的管理项目依赖的资源(jar包)，避免引入大量的jar包，不同jar包之间的版本冲突问题</li>
-<li>当使用maven进行项目依赖(jar包)管理，则很方便的可以解决这个问题。
-我们只需要在maven项目的pom.xml文件中，添加一段<dependency>依赖实现</li>
-</ul>
-<ol start="2" type="1">
-<li><strong>统一项目结构</strong></li>
-</ol>
-<ul>
-<li>提供标准、统一的项目结构，使用不同的开发工具Eclipse或者IDEA创建项目工程时发现项目结构不一致，若创建的是一个maven工程，是可以帮我们自动生成统一、标准的项目目录结构：</li>
-</ul>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221130220539444.png"
-alt="image-20221130220539444" />
-<figcaption aria-hidden="true">image-20221130220539444</figcaption>
-</figure>
-<p>统一结构为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- src/main/java: java源代码目录</span><br><span class="line">- src/main/resources:  配置文件信息</span><br><span class="line">- src/test/java: 测试代码</span><br><span class="line">- src/test/resources: 测试配置文件信息</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li><strong>项目构建</strong></li>
-</ol>
-<p>maven提供了标准的、跨平台(Linux、Windows、MacOS)
-的自动化项目构建方式<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221130222907628.png"
-alt="image-20221130222907628" /></p>
-<ul>
-<li>Maven中的坐标是==资源的唯一标识== ,
-通过该坐标可以唯一定位资源位置</li>
-<li>使用坐标来定义项目或引入项目中需要的依赖</li>
-</ul>
-<p>坐标，就是资源(jar包)的唯一标识，通过坐标可以定位到所需资源(jar包)位置，坐标由:<groupld>、<artifactld>、<version>三个标签组成；</p>
-<ul>
-<li>groupId：定义当前Maven项目隶属组织名称（通常是域名反写，例如：com.itheima）</li>
-<li>artifactId：定义当前Maven项目名称（通常是模块名称，例如
-order-service、goods-service）</li>
-<li>version：定义当前项目版本号</li>
-</ul>
-<p>依赖管理模型，是使用坐标来描述当前项目依赖哪些第三方jar包</p>
-<p>pom.xml文件中的坐标能找到所要的jar包，利用Maven<strong>仓库</strong></p>
-<h3 id="maven仓库">Maven仓库</h3>
-<p>Maven仓库分为：</p>
-<ul>
-<li>本地仓库：自己计算机上的一个目录(用来存储jar包)</li>
-<li>中央仓库：由Maven团队维护的全球唯一的。仓库地址：https://repo1.maven.org/maven2/</li>
-<li>远程仓库(私服)：一般由公司团队搭建的私有仓库</li>
-</ul>
-<p>当项目中使用坐标引入对应依赖jar包后，首先会查找本地仓库中是否有对应的jar包</p>
-<ul>
-<li><p>如果有，则在项目直接引用</p></li>
-<li><p>如果没有，则去中央仓库中下载对应的jar包到本地仓库</p></li>
-</ul>
-<p>如果还可以搭建远程仓库(私服)，将来jar包的查找顺序则变为： 本地仓库
---&gt; 远程仓库--&gt; 中央仓库</p>
-<p>由于中央仓库在国外，所以下载jar包速度可能比较慢，而阿里公司提供了一个远程仓库，里面基本也都有开源项目的jar包。</p>
-<p>进入到conf目录下修改settings.xml配置文件即可（<strong>阿里云私服</strong>）==注:
-只可配置一个<mirror>(另一个要注释!)
-，不然两个可能发生冲突，导致jar包无法下载!!!!!!!==</p>
-<h2 id="maven项目">Maven项目</h2>
-<blockquote>
-<ul>
-<li><p>Maven项目的目录结构:</p>
-<p>maven-project01 |--- src (源代码目录和测试代码目录) |--- main
-(源代码目录) |--- java (源代码java文件目录) |--- resources
-(源代码配置文件目录) |--- test (测试代码目录) |--- java
-(测试代码java目录) |--- resources (测试代码配置文件目录) |--- target
-(编译、打包生成文件存放目录)</p></li>
-</ul>
-</blockquote>
-<p>POM (Project Object Model)
-：指的是项目对象模型，用来描述当前的maven项目。</p>
-<ul>
-<li>使用pom.xml文件来实现</li>
-</ul>
-<p>pom.xml文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- POM模型版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 当前项目坐标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven_project1<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 打包方式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>pom文件详解：</p>
-<ul>
-<li><project> ：pom文件的根标签，表示当前maven项目</li>
-<li><modelVersion> ：声明项目描述遵循哪一个POM模型版本
-<ul>
-<li>虽然模型本身的版本很少改变，但它仍然是必不可少的。目前POM模型版本是4.0.0</li>
-</ul></li>
-<li>坐标 ：<groupId>、<artifactId>、<version>
-<ul>
-<li>定位项目在本地仓库中的位置，由以上三个标签组成一个坐标</li>
-</ul></li>
-<li><packaging>
-：maven项目的打包方式，通常设置为jar或war（默认值：jar）</li>
-</ul>
-<p>使用Maven面板，通过导入pox文件可以快速导入Maven文件</p>
-<h2 id="maven依赖管理">Maven依赖管理</h2>
-<p>依赖：指当前项目运行所需要的jar包。一个项目中可以引入多个依赖：</p>
-<p>例如：在当前工程中，我们需要用到logback来记录日志，此时就可以在maven工程的pom.xml文件中，引入logback的依赖。具体步骤如下：</p>
-<ol type="1">
-<li>在pom.xml中编写<dependencies>标签</li>
-<li>在<dependencies>标签中使用<dependency>引入坐标</li>
-<li>定义坐标的 groupId、artifactId、version</li>
-<li>点击刷新按钮，引入最新加入的坐标
-<ul>
-<li>刷新依赖：保证每一次引入新的依赖，或者修改现有的依赖配置，都可以加入最新的坐标</li>
-</ul></li>
-</ol>
-<p><strong>添加依赖的几种方式：</strong></p>
-<ol type="1">
-<li>利用中央仓库搜索的依赖坐标</li>
-<li>利用IDEA工具搜索依赖 Alt+Insert快捷键 -&gt; Dependencies</li>
-</ol>
-<p><strong>依赖具有传递性</strong></p>
-<p>早期我们没有使用maven时，向项目中添加依赖的jar包，需要把所有的jar包都复制到项目工程下。若需要logback-classic时，由于logback-classic又依赖了logback-core和slf4j，所以必须把这3个jar包全部复制到项目工程下。</p>
-<p><strong>However，</strong>我们现在使用了maven，当项目中需要使用logback-classic时，只需要在pom.xml配置文件中，添加logback-classic的依赖坐标即可，在pom.xml文件中只添加了logback-classic依赖，但由于maven的依赖具有传递性，所以会自动把所依赖的其他jar包也一起导入。</p>
-<p>依赖传递可以分为：</p>
-<ol type="1">
-<li>直接依赖：在当前项目中通过依赖配置建立的依赖关系</li>
-<li>间接依赖：被依赖的资源如果依赖其他资源，当前项目间接依赖其他资源</li>
-</ol>
-<p><strong>排除依赖：</strong></p>
-<p>在maven项目中，我们可以通过排除依赖来实现：A依赖B，B依赖C，如果<strong>A不想将C</strong>依赖进来</p>
-<p>什么是排除依赖？<exclusions> <exclusion></p>
-<ul>
-<li>排除依赖：指主动断开依赖的资源。（被排除的资源无需指定版本）</li>
-</ul>
-<p>依赖排除示例：</p>
-<ul>
-<li>maven-projectA依赖了maven-projectB，maven-projectB依赖了Junit。基于依赖的传递性，所以maven-projectA也依赖了Junit</li>
-</ul>
-<p>使用排除依赖后，maven-projectA不再依赖了Junit</p>
-<p><strong>依赖范围：</strong></p>
-<p>在项目中导入依赖的jar包后，默认情况下，可以在任何地方使用。</p>
-<p>如果希望限制依赖的使用范围，可以通过<scope>标签设置其作用范围。</p>
-<p>作用范围：</p>
-<ol type="1">
-<li>主程序范围有效（main文件夹范围内）</li>
-<li>测试程序范围有效（test文件夹范围内）</li>
-<li>是否参与打包运行（package指令范围内）</li>
-</ol>
-<h2 id="maven生命周期">Maven生命周期</h2>
-<p>Maven的生命周期就是为了对所有的构建过程进行抽象和统一。
-描述了一次项目构建，经历哪些阶段。在Maven出现之前，项目构建的生命周期就已经存在，软件开发人员每天都在对项目进行<strong>清理，编译，测试及部署</strong>。虽然大家都在不停地做构建工作，但公司和公司间、项目和项目间，往往使用不同的方式做类似的工作。</p>
-<p>Maven从大量项目和构建工具中学习和反思，然后总结了一套高度完美的，易扩展的项目构建生命周期。这个生命周期包含了项目的清理，初始化，编译，测试，打包，集成测试，验证，部署和站点生成等几乎所有构建步骤。</p>
-<p>Maven对项目构建的生命周期划分为3套（相互独立）：</p>
-<ul>
-<li>clean：清理工作。</li>
-<li>default：核心工作。如：编译、测试、打包、安装、部署等。</li>
-<li>site：生成报告、发布站点等。</li>
-</ul>
-<p>主要关注以下几个：</p>
-<p>• clean：移除上一次构建生成的文件</p>
-<p>• compile：编译项目源代码</p>
-<p>• test：使用合适的单元测试框架运行测试(junit)</p>
-<p>• package：将编译后的文件打包，如：jar、war等</p>
-<p>• install：安装项目到本地仓库</p>
-<p>Maven的生命周期是抽象的，这意味着生命周期本身不做任何实际工作。<strong>在Maven的设计中，实际任务（如源代码编译）都交由插件来完成。</strong></p>
-<p><strong>生命周期的顺序</strong>是：clean --&gt; validate --&gt;
-compile --&gt; test --&gt; package --&gt; verify --&gt; install --&gt;
-site --&gt; deploy</p>
-<p>我们需要关注的就是：clean --&gt; compile --&gt; test --&gt; package
---&gt; install</p>
-<p>在<strong>同一套</strong>生命周期中，我们在执行后面的生命周期时，前面的生命周期都会执行。（执行package时，compile会执行，但clean不会，因为不是一套）</p>
-<p>在日常开发中，当我们要执行指定的生命周期时，有两种执行方式：</p>
-<ol type="1">
-<li>在idea工具右侧的maven工具栏中，选择对应的生命周期，双击执行</li>
-<li>在DOS命令行中，通过maven命令执行</li>
-</ol>
-<p>compile后：只对main文件夹（主函数）源代码编译，生成target目录</p>
-<p>test：对test文件夹（测试程序）进行编译</p>
-<p>package：对项目打包，生成jar包，打包后生成的jar包放在target目录下</p>
-<p>install：把jar文件安装在当前项目文件夹指定坐标路径下（target）</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221201170830837.png"
-alt="image-20221201170830837" />
-<figcaption aria-hidden="true">image-20221201170830837</figcaption>
-</figure>
-<p>clean：删除target目录</p>
-<p>DOS操作：需要在Poweshell窗口操作 mvn clean....</p>
-<h2 id="其他maven知识点持续补充">其他Maven知识点（持续补充）</h2>
-<p>有时候给idea配置完maven仓库信息后，在idea中依然搜索不到仓库中的jar包。这是因为仓库中的jar包索引尚未更新到idea中。这个时候我们就需要更新idea中maven的索引了，具体做法如下：</p>
-<p>打开设置----搜索maven----Repositories----选中本地仓库-----点击Update</p>
-<p>清理Maven仓库：初始情况下，我们的本地仓库是没有任何jar包的，此时会从私服去下载（如果没有配置，就直接从中央仓库去下载），可能由于网络的原因，jar包下载不完全，这些不完整的jar包都是以lastUpdated结尾。此时，maven不会再重新帮你下载，需要你删除这些以lastUpdated结尾的文件，然后maven才会再次自动下载这些jar包。</p>
-<p>如果本地仓库中有很多这样的以lastUpadted结尾的文件，可以定义一个批处理文件，在其中编写如下脚本来删除：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set REPOSITORY_PATH=E:\develop\apache-maven-3.6.1\mvn_repo</span><br><span class="line">rem 正在搜索...</span><br><span class="line"></span><br><span class="line">del /s /q %REPOSITORY_PATH%\*.lastUpdated</span><br><span class="line"></span><br><span class="line">rem 搜索完毕</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
-<p>操作步骤如下：</p>
-<p>1). 定义批处理文件del_lastUpdated.bat
-(直接创建一个文本文件，命名为del_lastUpdated，后缀名直接改为bat即可
-)</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221214154949482.png"
-alt="image-20221214154949482" />
-<figcaption aria-hidden="true">image-20221214154949482</figcaption>
-</figure>
-<p>2). 在上面的bat文件上<strong>右键---》编辑</strong>
-。修改文件：REPOSITORY为自己的仓库 mvn-3.6.1/mvn_repo</p>
-<p>修改完毕后，双击运行即可删除maven仓库中的残留文件。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E9%9A%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1666,7 +2222,7 @@ alt="image-20221214154949482" />
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/20/Day2/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/Day0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -1680,7 +2236,7 @@ alt="image-20221214154949482" />
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/03/20/Day2/" class="post-title-link" itemprop="url">Day2</a>
+            <a href="/2024/03/15/Day0/" class="post-title-link" itemprop="url">Day0</a>
         </h2>
 
         <div class="post-meta">
@@ -1690,14 +2246,14 @@ alt="image-20221214154949482" />
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-03-19 16:56:02" itemprop="dateCreated datePublished" datetime="2024-03-19T16:56:02Z">2024-03-19</time>
+              <time title="创建时间：2024-03-15 15:25:52" itemprop="dateCreated datePublished" datetime="2024-03-15T15:25:52Z">2024-03-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-09 13:55:45" itemprop="dateModified" datetime="2024-04-09T13:55:45Z">2024-04-09</time>
+                <time title="修改时间：2024-03-18 10:00:22" itemprop="dateModified" datetime="2024-03-18T10:00:22Z">2024-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1720,490 +2276,15 @@ alt="image-20221214154949482" />
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>总结一下最近没来得及总结的内容与今日学习内容，由于Java
-Web开发目前没学完，于是边学边补不会的内容：</p>
-<h1 id="项目开发">项目开发</h1>
-<h2 id="软件开发与角色">1.软件开发与角色</h2>
-<h3 id="软件开发">软件开发</h3>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106162815172.png"
-alt="image-20221106162815172" />
-<figcaption aria-hidden="true">image-20221106162815172</figcaption>
-</figure>
-<p><strong>软件开发流程</strong>：</p>
-<p>需求分析：完成需求规格说明书、产品原型编写。</p>
-<p>设计：UI设计、数据库设计、接口设计</p>
-<p>编码：编写项目代码、并完成单元测试。</p>
-<p>测试：测试人员,对部署在测试环境的项目进行功能测试,
-并出具测试报告。</p>
-<p>上线运维：会由运维人员准备服务器上的软件环境安装、配置， 配置完毕后，
-再将我们开发好的项目，部署在服务器上运行。</p>
-<h3 id="角色分工">角色分工</h3>
-<p><strong>招聘/升职岗位</strong>：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 27%" />
-<col style="width: 39%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">岗位/角色</th>
-<th>对应阶段</th>
-<th style="text-align: left;">职责/分工</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">项目经理</td>
-<td>全阶段</td>
-<td style="text-align: left;">对整个项目负责，任务分配、把控进度</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">产品经理</td>
-<td>需求分析</td>
-<td
-style="text-align: left;">进行需求调研，输出需求调研文档、产品原型等</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">UI设计师</td>
-<td>设计</td>
-<td style="text-align: left;">根据产品原型输出界面效果图</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">架构师</td>
-<td>设计</td>
-<td style="text-align: left;">项目整体架构设计、技术选型等</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><font color='red'>开发工程师</font></td>
-<td><font color='red'>编码</font></td>
-<td style="text-align: left;"><font color='red'>功能代码实现</font></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">测试工程师</td>
-<td>测试</td>
-<td style="text-align: left;">编写测试用例，输出测试报告</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">运维工程师</td>
-<td>上线运维</td>
-<td style="text-align: left;">软件环境搭建、项目上线</td>
-</tr>
-</tbody>
-</table>
-<h3 id="大厂研发流程">大厂研发流程</h3>
-<p>需求文档（确定需求包括的功能/确定开发包括的难点） -&gt;
-架构图（模块间的依赖关系，角色的分工） -&gt;
-确定协议（后端间，前后端间通讯协议，兼容性+易于维护） -&gt;
-设计数据结构和算法（格式/容器处理数据，算法大多直接调包） -&gt;
-预估容量与性能 -&gt; 考虑部署（环境，分布式，风险意识）-&gt;
-设计评审（彼此评审，多方面评价）-&gt;
-写代码（不仅在一个地方看到写代码是脑力活了）-&gt; 自测 -&gt;
-联调（费时费力，一定先自测好） -&gt; 交给测试岗 -&gt; code
-review（反复修改） -&gt; 合入主干 -&gt; 发布（考虑兼容性）</p>
-<h2 id="sky项目初步介绍">2.sky项目初步介绍</h2>
-<h3 id="技术栈">技术栈</h3>
-<p><strong>用户层：</strong>系统管理后台的前端页面</p>
-<p><strong>网关层：</strong>Nginx是一个服务器，主要用来作为Http服务器，部署静态资源，访问性能高。</p>
-<p>Nginx中还有两个比较重要的作用： <strong>反向代理和负载均衡</strong>，
-在进行项目部署时，要实现Tomcat的负载均衡，就可以通过Nginx来实现。</p>
-<p><strong>应用层：</strong></p>
-<p>SpringBoot： 快速构建Spring项目, 采用 "约定优于配置" 的思想,
-简化Spring项目的配置开发。</p>
-<p>SpringMVC：SpringMVC是spring框架的一个模块，springmvc和spring无需通过中间整合层进行整合，可以无缝集成。</p>
-<p>Spring Task: 由Spring提供的定时任务框架。</p>
-<p>httpclient: 主要实现了对http请求的发送。</p>
-<p>Spring Cache: 由Spring提供的数据缓存框架</p>
-<p>JWT: 用于对应用程序上的用户进行身份验证的标记。</p>
-<p>阿里云OSS: 对象存储服务，在项目中主要存储文件，如图片等。</p>
-<p>Swagger： 可以自动的帮助开发人员生成接口文档，并对接口进行测试。</p>
-<p>POI: 封装了对Excel表格的常用操作。</p>
-<p>WebSocket:
-一种通信网络协议，使客户端和服务器之间的数据交换更加简单，用于项目的来单、催单功能实现。</p>
-<p><strong>数据层：</strong></p>
-<p>MySQL： <strong>关系型数据库</strong>,
-本项目的核心业务数据都会采用MySQL进行存储。</p>
-<p>Redis： 基于key-value格式存储的内存数据库, 访问速度快,
-经常使用它做<strong>缓存</strong>。</p>
-<p>Mybatis：
-本项目<strong>持久层</strong>（项目的持久层是指在软件开发中负责处理数据持久化的部分，也称为数据访问层或数据持久化层）将会使用Mybatis开发。</p>
-<p>pagehelper: 分页插件。</p>
-<p>spring data redis: 简化java代码操作Redis的API。</p>
-<p><strong>工具：</strong></p>
-<p>git: 版本控制工具, 在团队协作中,
-使用该工具对项目中的代码进行管理。</p>
-<p>maven: 项目构建工具。</p>
-<p>junit：单元测试工具，开发人员功能实现完毕后，需要通过junit对功能进行单元测试。</p>
-<p>postman:
-接口测工具，模拟用户发起的各类HTTP请求，获取对应的响应结果。</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221106185646994.png"
-alt="image-20221106185646994" />
-<figcaption aria-hidden="true">image-20221106185646994</figcaption>
-</figure>
-<h3 id="idea搭建环境"><strong>IDEA搭建环境</strong></h3>
-<p><strong>Git</strong>:<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43252521/article/details/123959391">在
-IDEA 中使用 Git 图文教程_idea连接git-CSDN博客</a></p>
-<p>更改文件夹后出错，导致无法commit and push：</p>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/tcjy1000/article/details/127129224">git
-fatal: detected dubious ownership in repository 解决方法_detected
-dubious ownership in repository at-CSDN博客</a></p>
-<p><strong>连接数据库</strong>：</p>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/Royalic/article/details/119604763">超详细的Idea与MySQL的连接（从入门到精通）_idea连接数据库-CSDN博客</a></p>
-<p>更改mysql文件夹名称，出现ERROR2003:</p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/661201217">【已解决】mysql：ERROR
-2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
-- 知乎 (zhihu.com)</a></p>
-<h3 id="nginx作用">nginx作用</h3>
-<h4 id="反向代理">反向代理</h4>
-<p>前端请求地址：http://localhost/api/employee/login</p>
-<p>后端接口地址：http://localhost:8080/admin/employee/login</p>
-<p>很明显，两个地址不一致，那是如何请求到后端服务的呢？</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221107152041371.png"
-alt="image-20221107152041371" />
-<figcaption aria-hidden="true">image-20221107152041371</figcaption>
-</figure>
-<p><strong>nginx 反向代理</strong>，就是将前端发送的动态请求由 nginx
-转发到后端服务器，而不是不直接发给后端</p>
-<p><strong>好处：</strong></p>
-<ul>
-<li><p>提高访问速度</p>
-<p>因为nginx本身可以进行缓存，如果访问的同一接口，并且做了数据缓存，nginx就直接可把数据返回，不需要真正地访问服务端，从而提高访问速度。</p></li>
-<li><p>进行负载均衡</p>
-<p>所谓负载均衡,就是把大量的请求按照我们指定的方式均衡的分配给集群中的每台服务器。</p></li>
-<li><p>保证后端服务安全</p>
-<p>因为一般后台服务地址不会暴露，所以使用浏览器不能直接访问，可以把nginx作为请求访问的入口，请求到达nginx后转发到具体的服务中，从而保证后端服务的安全。</p></li>
-</ul>
-<p><strong>配置：</strong></p>
-<p><strong>nginx 反向代理的配置方式 conf文件中：</strong></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8080/admin/; <span class="comment">#反向代理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>proxy_pass：</strong>该指令是用来设置代理服务器的地址，可以是主机名称，IP地址加端口号等形式。</p>
-<h4 id="负载均衡">负载均衡</h4>
-<p>当如果服务以集群的方式进行部署时，那nginx在转发请求到服务器时就需要做相应的负载均衡。其实，负载均衡从本质上来说也是基于反向代理来实现的，最终都是转发请求。</p>
-<p><strong>nginx 负载均衡的配置方式：</strong></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> webservers&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.128:8080</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.100.129:8080</span>;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="section">location</span> /api/&#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://webservers/admin;<span class="comment">#负载均衡</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>upstream：</strong>如果代理服务器是一组服务器的话，我们可以使用upstream指令配置后端服务器组。</p>
-<p>如上代码的含义是：监听80端口号， 然后当我们访问
-http://localhost:80/api/../..这样的接口的时候，它会通过 location /api/
-{} 这样的反向代理到
-http://webservers/admin，根据webservers名称找到一组服务器，根据设置的负载均衡策略(默认是轮询)转发到具体的服务器。</p>
-<p><strong>注：</strong>upstream后面的名称可自定义，但要上下保持一致。</p>
-<p><strong>nginx 负载均衡策略：</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th><strong>名称</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>轮询</td>
-<td>默认方式</td>
-</tr>
-<tr class="even">
-<td>weight</td>
-<td>权重方式，默认为1，权重越高，被分配的客户端请求就越多</td>
-</tr>
-<tr class="odd">
-<td>ip_hash</td>
-<td>依据ip分配方式，这样每个访客可以固定访问一个后端服务</td>
-</tr>
-<tr class="even">
-<td>least_conn</td>
-<td>依据最少连接方式，把请求优先分配给连接数少的后端服务</td>
-</tr>
-<tr class="odd">
-<td>url_hash</td>
-<td>依据url分配方式，这样相同的url会被分配到同一个后端服务</td>
-</tr>
-<tr class="even">
-<td>fair</td>
-<td>依据响应时间方式，响应时间短的服务将会被优先分配</td>
-</tr>
-</tbody>
-</table>
-<h3 id="加密登录">加密登录</h3>
-<p><strong>STEP1</strong>：修改数据库中的密码password值，为md5（一个hash算法）加密后的内容</p>
-<p><strong>STEP2</strong>：修改Java代码，将前端提交的代码通过md5加密再对比数据库中固定内容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password = DigestUtils.md5DigestAsHex(password.getBytes());</span><br></pre></td></tr></table></figure>
-<h3 id="导入接口文档">导入接口文档</h3>
-<p><strong>方式：</strong>YApi导入.json数据 https://yapi.pro/</p>
-<p>YApi是一个开源的接口管理平台，它主要用于帮助团队更好地管理和维护API（Application
-Programming Interface）接口文档。</p>
-<h3 id="后端自测">后端自测</h3>
-<p><strong>利用Swagger</strong>：</p>
-<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful
-风格的 Web 服务(<a target="_blank" rel="noopener" href="https://swagger.io/"
-class="uri">https://swagger.io/</a>)。 它的主要作用是：</p>
-<ol type="1">
-<li><p>使得前后端分离开发更加方便，有利于团队协作</p></li>
-<li><p>接口的文档在线自动生成，降低后端开发人员编写接口文档的负担</p></li>
-<li><p>功能测试</p>
-<p>Spring已经将Swagger纳入自身的标准，建立了Spring-swagger项目，现在叫Springfox。通过在项目中引入Springfox
-，即可非常简单快捷的使用Swagger。</p></li>
-</ol>
-<p>目前都使用knife4j框架：Java
-MVC框架集成Swagger生成文档API增强解决方案</p>
-<p>1.导入Maven依赖 pox.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.在配置类中加入 knife4j 相关配置</p>
-<p>3.设置静态资源映射，否则接口文档页面无法访问</p>
-<p>4.访问测试，接口文档路径在原路径后加入：/doc.html(静态资源映射)</p>
-<p>接口测试:测试登录功能</p>
-<p>Swagger常用注解：通过注解可以控制生成的接口文档，使接口文档拥有更好的可读性，常用注解如下：</p>
-<table>
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>注解</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong><span class="citation"
-data-cites="Api">@Api</span></strong></td>
-<td>用在类上，例如Controller，表示对类的说明</td>
-</tr>
-<tr class="even">
-<td><strong><span class="citation"
-data-cites="ApiModel">@ApiModel</span></strong></td>
-<td>用在类上，例如entity、DTO、VO</td>
-</tr>
-<tr class="odd">
-<td><strong><span class="citation"
-data-cites="ApiModelProperty">@ApiModelProperty</span></strong></td>
-<td>用在属性上，描述属性信息</td>
-</tr>
-<tr class="even">
-<td><strong><span class="citation"
-data-cites="ApiOperation">@ApiOperation</span></strong></td>
-<td>用在方法上，例如Controller的方法，说明方法的用途、作用</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Swagger PK YApi</strong>：</p>
-<p>1、Yapi 是设计阶段使用的工具，管理和维护接口</p>
-<p>2、Swagger 在开发阶段使用的框架，帮助后端开发人员做后端的接口测试</p>
-<h2 id="实现功能">3.实现功能</h2>
-<p>实现任何一个功能都要有如下几步：</p>
-<p><strong>需求分析与设计-&gt;代码开发-&gt;功能测试-&gt;代码完善</strong></p>
-<p>一般在做需求分析时，往往都是对照着产品原型进行分析，因为产品原型比较直观，便于我们理解业务，设计出来表单内容/文档/接口</p>
-<p><strong>代码开发</strong>是根据需求分析的内容，结合代码的原本框架，根据功能添加新的部分（选择实现功能的方法）</p>
-<p><strong>功能测试实现方式：</strong></p>
-<ul>
-<li>通过接口文档测试 swagger的doc/html，向后端发送数据</li>
-<li>通过前后端联调测试：nginx启动http服务，在前端直接发送数据到后端</li>
-</ul>
-<p><strong>代码完善：</strong>针对功能测试中程序出现的问题，调整代码的内容，接下来在实现功能中，我们将记录重点集中在<strong>代码开发和代码完善</strong></p>
-<h3 id="新增员工">新增员工</h3>
-<h4 id="代码开发">代码开发</h4>
-<p>根据新增员工接口设计对应的DTO（当前端提交的数据和实体类中对应的属性差别比较大时，建议使用DTO来封装数据）</p>
-<p><strong>什么是DTO？</strong></p>
-<p>Java是<strong>面向对象（object）的</strong>，在开发过程中，我们会封装各种各样的实体类</p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/680050977">一篇文章带你搞懂Controller、Service等各层的功能与作用
-- 知乎 (zhihu.com)</a></p>
-<table>
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 58%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>实体类</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PO持久化对象（Persistent Object）</td>
-<td>用于表示数据库中的实体或表的映射 通常与数据库表的结构和字段对应
-PO的属性对应数据库表的字段，可以进行持久化操作（新增、查询、更新、删除）</td>
-</tr>
-<tr class="even">
-<td><strong>VO值对象（Value Object）</strong></td>
-<td>VO是值对象，用于封装数据，通常是不可变的，用于传递数据而不包含业务逻辑，VO可以用于在不同层之间传递数据，如前端和后端之间，后端的返回的到前端的数据只需要保留必要的字段就可以，将这些必要的字段封装起来就是VO</td>
-</tr>
-<tr class="odd">
-<td>BO业务对象（Business Object）</td>
-<td>BO是业务对象，用于封装业务逻辑和操作包含与业务相关的方法和属性，用于实现业务规则和操作，BO通常与领域模型紧密相关，用于表示业务概念和业务流程</td>
-</tr>
-<tr class="even">
-<td>DO数据对象（Data/Domain Object）</td>
-<td>DO通常与BO和PO相对应，用于实现领域模型和业务逻辑，用于表示从数据存储中得到的数据</td>
-</tr>
-<tr class="odd">
-<td>DAO数据访问对象（Data Access Object）</td>
-<td>DAO是数据访问对象，用于封装对数据库的访问操作，也就是我们常说的Dao层<br/>提供对数据库的增删改查等操作的接口<br/>DAO可以隐藏底层数据库的具体实现细节，使得业务逻辑层与数据库解耦</td>
-</tr>
-<tr class="even">
-<td><strong>DTO数据传输对象（Data Transfer Object）</strong></td>
-<td>DTO是<strong>数据传输对象</strong>，用于在不同层之间传输数据<br/>通常用于优化数据传输的性能和减少网络通信的开销。<br/>DTO可以封装多个对象的数据，以减少网络请求次数<br/>如果说VO一般用于前端和后端之后传输数据，那么DTO就是在后端的不同层之间传递数据，例如controller层和service层或者在服务之间结构调用的时候使用DTO</td>
-</tr>
-<tr class="odd">
-<td>POJO普通Java对象（Plain Old Java Object）</td>
-<td>POJO是一个简单的Java对象，没有特定的限制和约束<br/>是一种普通的Java类，不依赖于特定的框架或接口</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Service层：服务层</strong>
-由于Dao里面存放了对表操作的方法，entity类中存放了映射表的POJO类。Service的作用就是将Dao和entity类整合起来，进行再次封装，封装成一个方法，我们调用这个方法，就实现了对某个表的增删改查操作。</p>
-<p><strong>Controller：控制层</strong>
-负责请求转发，接受页面传递过来的参数，根据参数的不同，是调用不同的Service层方法进行操作，操作完成后将返回结果传递给页面。</p>
-<p><strong>数据访问层：</strong></p>
-<p><strong>Mapper：</strong>Mapper模式通常是指对象-关系映射（ORM）中的组件。它负责将<strong>领域对象和数据库表</strong>之间进行映射，实现数据的读取和写入。Mapper将<strong>数据库操作转换为对象操作</strong>，屏蔽了底层数据库的细节，使得开发人员可以使用<strong>面向对象</strong>的方式操作数据。
-它可以处理对象与关系型数据库之间的转换，包括查询、插入、更新和删除等操作。</p>
-<p><strong>DAO：</strong>DAO全称是（Data Access Objects)
-，数据库访问对象，主要的功能就是用于进行数据操作的，在程序的标准开发架构中属于数据访问层的操作。可以简单理解为一张数据表，就有一个DAO与之对应，与数据库的操作，增删改查等方法。DAO层可以实现对数据的持久化操作，使得业务逻辑可以通过DAO的接口来访问数据，而不需要关心具体的数据访问实现方式。</p>
-<p><strong>STEP1：自定义DTO类。</strong></p>
-<p>进入sky-pojo模块，在com.sky.dto包下，已定义EmployeeDTO</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sky.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmployeeDTO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String idNumber;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>STEP2：Controller层操作</strong></p>
-<p><strong>EmployeeController中创建新增员工方法</strong></p>
-<p>进入到sky-server模块中，在com.sky.controller.admin包下，在EmployeeController中创建新增员工方法，接收前端提交的参数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@PostMapping</span></span><br><span class="line">   <span class="meta">@ApiOperation(&quot;新增员工&quot;)</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> EmployeeDTO employeeDTO)</span>&#123;</span><br><span class="line">       log.info(<span class="string">&quot;新增员工：&#123;&#125;&quot;</span>,employeeDTO);</span><br><span class="line">       employeeService.save(employeeDTO);<span class="comment">//该方法后续步骤会定义</span></span><br><span class="line">       <span class="keyword">return</span> Result.success();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注：</strong>Result类定义了后端统一返回结果格式。（success(有无参数)
-error）</p>
-<p><strong>STEP3：Service层接口与实现</strong></p>
-<p><strong>在EmployeeService接口中声明新增员工方法</strong></p>
-<p>进入到sky-server模块中,com.sky.server.EmployeeService</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span>;</span><br></pre></td></tr></table></figure>
-<p>在接口的实现中：</p>
-<p><strong>在EmployeeServiceImpl中实现新增员工方法</strong></p>
-<p>com.sky.server.impl.EmployeeServiceImpl中创建方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 新增员工</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employeeDTO</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(EmployeeDTO employeeDTO)</span> &#123;</span><br><span class="line">       <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Employee</span>();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//对象属性拷贝</span></span><br><span class="line">       BeanUtils.copyProperties(employeeDTO, employee);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置账号的状态，默认正常状态 1表示正常 0表示锁定，StatusConstant表示状态常量</span></span><br><span class="line">       employee.setStatus(StatusConstant.ENABLE);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置密码，默认密码123456，加密后的</span></span><br><span class="line">       employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));</span><br><span class="line"></span><br><span class="line">       <span class="comment">//设置当前记录的创建时间和修改时间</span></span><br><span class="line">       employee.setCreateTime(LocalDateTime.now());</span><br><span class="line">       employee.setUpdateTime(LocalDateTime.now());</span><br><span class="line"></span><br><span class="line">       <span class="comment">//todo 设置当前记录创建人id和修改人id</span></span><br><span class="line">       employee.setCreateUser(<span class="number">10L</span>);<span class="comment">//目前写个假数据，后期修改</span></span><br><span class="line">       employee.setUpdateUser(<span class="number">10L</span>);</span><br><span class="line"></span><br><span class="line">       employeeMapper.insert(employee);<span class="comment">//后续步骤定义</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><strong>STEP4：Mapper层</strong></p>
-<p><strong>在EmployeeMapper中声明insert方法</strong></p>
-<p>com.sky.EmployeeMapper中添加方法</p>
-<p>由于SQL语句不是很复杂，因而此处用注解@Insert实现：注意在values值后加的内容要用驼峰命名法（application.yml已开启驼峰命名），而不是和数据库中的名称一致</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 插入员工数据</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> employee</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Insert(&quot;insert into employee (name, username, password, phone, sex, id_number, create_time, update_time, create_user, update_user,status) &quot; +</span></span><br><span class="line"><span class="meta">           &quot;values &quot; +</span></span><br><span class="line"><span class="meta">           &quot;(#&#123;name&#125;,#&#123;username&#125;,#&#123;password&#125;,#&#123;phone&#125;,#&#123;sex&#125;,#&#123;idNumber&#125;,#&#123;createTime&#125;,#&#123;updateTime&#125;,#&#123;createUser&#125;,#&#123;updateUser&#125;,#&#123;status&#125;)&quot;)</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(Employee employee)</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="功能测试">功能测试</h4>
-<p><strong>1.接口文档测试</strong></p>
-<p><strong>启动服务：</strong>访问http://localhost:8080/doc.html，进入新增员工接口</p>
-<p>json数据：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idNumber&quot;</span><span class="punctuation">:</span> <span class="string">&quot;111222333444555666&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xiaozhi&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;phone&quot;</span><span class="punctuation">:</span> <span class="string">&quot;13812344321&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;sex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;小智&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>响应码：401
-报错，原因：JwtTokenAdminInterceptor拦截器，需要校验token，由于JWT令牌校验失败，导致EmployeeController的save方法没有被调用，被拦截器拦截了</p>
-<p><strong>解决方法：</strong>调用员工登录接口获得一个合法的JWT令牌，使用admin用户登录获取令牌，将合法的JWT令牌添加到全局参数中</p>
-<p>文档管理--&gt;全局参数设置--&gt;添加参数，使得每次发送的json信息都会增加一个token头部，是合法的令牌；</p>
-<p><strong>什么是JWT？</strong></p>
-<p>https://blog.csdn.net/java_mindmap/article/details/123343404</p>
-<p><strong>JWT概念</strong></p>
-<p>JWT ， 全写JSON Web Token,
-是开放的行业标准RFC7591，它定义了一种紧凑的、自包含的方式，用于作为JSON对象在各方之间安全地传输信息。该信息可以被验证和信任，因为它是数字签名的。</p>
-<p>JWT加密JSON，保存在客户端，不需要在服务端保存会话信息，可以应用在前后端分离的用户验证上，后端对前端输入的用户信息进行加密产生一个令牌字符串，
-前端再次请求时附加此字符串，后端再使用算法解密。</p>
-<p><strong>JWT使用场景：</strong></p>
-<ul>
-<li>Authorization (授权) :
-这是使用JWT的最常见场景。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是现在广泛使用的JWT的一个特性，因为它的开销很小，并且可以轻松地跨域使用。</li>
-<li>Information Exchange (信息交换) :
-对于安全的在各方之间传输信息而言，JSON Web
-Tokens无疑是一种很好的方式。因为JWT可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。另外，由于签名是使用头和有效负载计算的，您还可以验证内容没有被篡改。</li>
-</ul>
-<p><strong>流程：</strong></p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/56e4f404cc63cfc2ac31283c8e944613.png"
-alt="56e4f404cc63cfc2ac31283c8e944613.png" />
-<figcaption
-aria-hidden="true">56e4f404cc63cfc2ac31283c8e944613.png</figcaption>
-</figure>
-<p>JSON Web
-Token由三部分组成，它们之间用圆点(.)连接。这三部分分别是：</p>
-<ul>
-<li><p>Header：Header 部分是一个 JSON
-对象，存放Token类型和加密算法。加密算法常见的有MD5、SHA、HMAC（ Hash
-Message Authentication Code）。</p></li>
-<li><p>Payload：存放有效信息，包括</p>
-<ul>
-<li>标准的声明，类似开发语言总的关键字，如
-<ul>
-<li>iss（Issuser） - 签发者</li>
-<li>sub Subject 面向主体</li>
-<li>aud Audience 接收方</li>
-<li>exp Expiration time 过期时间戳</li>
-<li>nbf Not Before, 开始生效时间戳</li>
-<li>iat(Issued at) 签发时间</li>
-<li>jti(JWT ID)： 唯一标识</li>
-</ul></li>
-<li>公共的声明：一般添加业务相关的必要信息，因为可解密，不建议敏感信息。</li>
-<li>私有的声明：提供者和消费者共同定义的声明，Base64对称解密，不建议敏感信息</li>
-</ul></li>
-<li><p>Signature签名：对前两个部分的签名，防止数据篡改。</p>
-<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用
-Header 里面指定的签名算法（默认是 HMAC
-SHA256），按照下面的公式产生签名。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure>
-<p>算出签名以后，把 Header、Payload、Signature
-三个部分拼成一个字符串，每个部分之间用"点"（.）分隔，就可以返回给用户。</p>
-<p>secret-密钥
-使用header中声明的加密算法对Header和payload的加密连接字符串进行secret组合加密。密钥保存在服务端，服务端根据密钥进行解密验证。</p></li>
-</ul>
-<p>标准的声明，类似开发语言总的关键字</p>
-<p>格式：xxxx.yyyy.zzzz</p>
-<p><strong>java-jwt/jjwt</strong></p>
-<p>java-jwt是Java语言中推荐的JWT实现库，使用Maven导入如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;com.auth0&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;java-jwt&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;<span class="number">3.8</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>产生加密Token</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> JWT.create()</span><br><span class="line">  .withExpiresAt(newDate(System.currentTimeMillis()))  <span class="comment">//设置过期时间</span></span><br><span class="line">  .withAudience(<span class="string">&quot;user1&quot;</span>) <span class="comment">//设置接受方信息，一般时登录用户</span></span><br><span class="line">  .sign(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>));  <span class="comment">//使用HMAC算法，111111作为密钥加密</span></span><br></pre></td></tr></table></figure>
-<p><strong>解密Token获取负载信息并验证Token是否有效</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">userId</span> <span class="operator">=</span> JWT.decode(token).getAudience().get(<span class="number">0</span>);</span><br><span class="line">Assertions.assertEquals(<span class="string">&quot;user1&quot;</span>, userId);</span><br><span class="line"><span class="type">JWTVerifier</span> <span class="variable">jwtVerifier</span> <span class="operator">=</span> JWT.require(Algorithm.HMAC256(<span class="string">&quot;111111&quot;</span>)).build();</span><br><span class="line">jwtVerifier.verify(token);</span><br></pre></td></tr></table></figure>
-<p>所谓的Token，其实就是服务端生成的一串加密字符串、以作客户端进行请求的一个“令牌”。当用户第一次使用账号密码成功进行登录后，服务器便生成一个Token及Token失效时间并将此返回给客户端，若成功登陆，以后客户端只需在有效时间内带上这个Token前来请求数据即可，无需再次带上用户名和密码。</p>
-<p><strong>2.前后端联调测试</strong></p>
-<p>启动nginx,访问
-http://localhost，通过前端员工管理界面添加信息，查看emplyee表，发现测试成功</p>
-<h4 id="代码完善">代码完善</h4>
-<p>目前，程序存在的问题主要有两个：</p>
-<ul>
-<li>录入的用户名已存在，抛出的异常后没有处理</li>
-<li>新增员工时，创建人id和修改人id设置为固定值</li>
-</ul>
-<p>接下来，我们对上述两个问题依次进行分析和解决。</p>
-<p><strong>问题一的解决</strong>：</p>
-<p>使得每次录入存在用户名时，前端会收到提示消息，通过全局异常处理器来处理，进入到sky-server模块，com.sky.hander包下，GlobalExceptionHandler.java添加方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 处理SQL异常</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> ex</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@ExceptionHandler</span></span><br><span class="line">   <span class="keyword">public</span> Result <span class="title function_">exceptionHandler</span><span class="params">(SQLIntegrityConstraintViolationException ex)</span>&#123;</span><br><span class="line">       <span class="comment">//Duplicate entry &#x27;zhangsan&#x27; for key &#x27;employee.idx_username&#x27;</span></span><br><span class="line">       <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> ex.getMessage();</span><br><span class="line">       <span class="keyword">if</span>(message.contains(<span class="string">&quot;Duplicate entry&quot;</span>))&#123;</span><br><span class="line">           String[] split = message.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">           <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> split[<span class="number">2</span>];</span><br><span class="line">           <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> username + MessageConstant.ALREADY_EXISTS;<span class="comment">//Message...是提前定义好的常量类</span></span><br><span class="line">           <span class="keyword">return</span> Result.error(msg);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="keyword">return</span> Result.error(MessageConstant.UNKNOWN_ERROR);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p><strong>问题二的解决：</strong></p>
-<p><strong>在员工登录成功后会生成JWT令牌并响应给前端：</strong></p>
-<p>JWT响应过程：</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Ning565/picblog@main/img/image-20221111201922482.png"
-alt="image-20221111201922482" />
-<figcaption aria-hidden="true">image-20221111201922482</figcaption>
-</figure>
-<p>后续请求中，前端会携带<strong>JWT令牌</strong>，通过JWT令牌可以<strong>解析出</strong>当前登录员工id，解析出登录员工id后，如何传递给Service的save方法？</p>
-<p>通过<strong>ThreadLocal</strong></p>
-<p>ThreadLocal 并不是一个Thread，而是Thread的局部变量。
-ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。</p>
-<p><strong>常用方法：</strong></p>
-<ul>
-<li>public void set(T value) 设置当前线程的线程局部变量的值</li>
-<li>public T get() 返回当前线程所对应的线程局部变量的值</li>
-<li>public void remove() 移除当前线程的线程局部变量</li>
-</ul>
-<p>于是在初始工程中已经封装了 ThreadLocal
-操作的工具类前提下，修改代码：</p>
-<p>在拦截器中interceptor解析出当前登录员工id，并放入<strong>线程局部变量中
--&gt;在Service中获取线程局部变量中的值</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">Long</span> <span class="variable">empId</span> <span class="operator">=</span> Long.valueOf(claims.get(JwtClaimsConstant.EMP_ID).toString());</span><br><span class="line">            log.info(<span class="string">&quot;当前员工id：&quot;</span>, empId);</span><br><span class="line">            <span class="comment">/////将用户id存储到ThreadLocal////////</span></span><br><span class="line">            BaseContext.setCurrentId(empId);</span><br><span class="line">            <span class="comment">///////////////////////////////////</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在save方法中加入：</span></span><br><span class="line">employee.setUpdateUser(BaseContext.getCurrentId());</span><br><span class="line"><span class="comment">//从线程池局部变量取值</span></span><br></pre></td></tr></table></figure>
-<p>即可完成创建人id的更新</p>
-<p>开始刷，随后有时间再去看acwing的算法基础课、提高课、labulagu等（侧重于系统化长时间学习，ACMer，针对思维）</p>
-
+          内容加密，输入密码后阅读
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/15/Day0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2302,87 +2383,6 @@ JavaWeb开发（选学核心部分如SpringBoot）-&gt;直接开苍穹外卖项�
 <p><br></p>
 <p><strong>坚持学习，让乏味的生活多姿多彩。</strong></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Ning565/Ning565.github.io/2024/03/15/Day0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="NING565">
-      <meta itemprop="description" content="记录下学习与生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SJN的个人小屋">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/15/Day0/" class="post-title-link" itemprop="url">Day0</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-03-15 15:25:52" itemprop="dateCreated datePublished" datetime="2024-03-15T15:25:52Z">2024-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-18 10:00:22" itemprop="dateModified" datetime="2024-03-18T10:00:22Z">2024-03-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%9B%E5%8E%82%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">进厂学习记录</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          内容加密，输入密码后阅读
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/15/Day0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
