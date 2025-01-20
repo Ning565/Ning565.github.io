@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。  合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较； 迭代法中">
+  <meta name="description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Day7">
 <meta property="og:url" content="https://github.com/Ning565/Ning565.github.io/2024/04/20/Day7/index.html">
 <meta property="og:site_name" content="SJN的个人小屋">
-<meta property="og:description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。  合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较； 迭代法中">
+<meta property="og:description" content="算法 这几天努了努力，把代码随想录的二叉树专题全刷完了：   image-20240419210357930  简单按照网站中(二叉树系列)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-19T20:55:49.000Z">
-<meta property="article:modified_time" content="2024-04-19T13:19:42.510Z">
+<meta property="article:modified_time" content="2025-01-20T13:45:57.735Z">
 <meta property="article:author" content="NING565">
 <meta property="article:tag" content="二叉树算法">
 <meta property="article:tag" content="毕业设计">
@@ -215,10 +215,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-04-19 20:55:49 / 修改时间：13:19:42" itemprop="dateCreated datePublished" datetime="2024-04-19T20:55:49Z">2024-04-19</time>
+              <time title="创建时间：2024-04-19 20:55:49" itemprop="dateCreated datePublished" datetime="2024-04-19T20:55:49Z">2024-04-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-20 13:45:57" itemprop="dateModified" datetime="2025-01-20T13:45:57Z">2025-01-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -250,6 +256,7 @@ alt="image-20240419210357930" />
 </figure>
 <p>简单按照网站中(<a
 target="_blank" rel="noopener" href="https://www.programmercarl.com/周总结/20201017二叉树周末总结.html#周一">二叉树系列</a>)总结一下这几天刷的二叉树内容，然后对二叉树专题进行一个大总结。</p>
+<span id="more"></span>
 <ol type="1">
 <li><p>合并两个二叉树时，平时我们都习惯了操作一个二叉树，一起操作两个树可能还有点陌生。其实套路是一样，只不过一起操作两个树，递归法还是同样的原理，无非是两个树同时开始比较；</p>
 <p><strong>迭代法中，一般一起操作两个树都是使用队列模拟类似层序遍历，同时处理两个树的节点，这种方式最好理解，如果用模拟递归的思路的话，要复杂一些。</strong></p></li>
@@ -402,7 +409,7 @@ alt="image-20240419205929107" />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -441,7 +448,7 @@ alt="image-20240419205929107" />
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
